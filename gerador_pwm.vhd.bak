@@ -1,0 +1,17 @@
+-- clock_in : clock simetrico com periodo T
+-- pwm1 : tempo total de 12T e tempo alto de 3T
+-- pwm2 : tempo total de 12T e tempo alto de 6T
+
+entity gerador_pwm is
+port (
+	signal clock : in bit;
+	signal pwm1, pwm2 : out bit
+);
+end entity gerador_pwm;
+
+architecture c_gerador_pwm of gerador_pwm is
+
+begin
+
+
+end architecture c_gerador_pwm;

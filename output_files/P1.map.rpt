@@ -1,0 +1,440 @@
+Analysis & Synthesis report for P1
+Wed Sep 19 18:26:45 2018
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. User-Specified and Inferred Latches
+  9. Registers Removed During Synthesis
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Elapsed Time Per Partition
+ 14. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Wed Sep 19 18:26:45 2018           ;
+; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
+; Revision Name                      ; P1                                              ;
+; Top-level Entity Name              ; p1                                              ;
+; Family                             ; Cyclone II                                      ;
+; Total logic elements               ; 81                                              ;
+;     Total combinational functions  ; 66                                              ;
+;     Dedicated logic registers      ; 29                                              ;
+; Total registers                    ; 29                                              ;
+; Total pins                         ; 23                                              ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 0                                               ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP2C35F672C6       ;                    ;
+; Top-level entity name                                                      ; P1                 ; P1                 ;
+; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                       ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                ; Library ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------+---------+
+; conv_7seg.vhd                    ; yes             ; User VHDL File  ; C:/Users/aluno/Desktop/P1/P1_JORGE_LUCAS/conv_7seg.vhd      ;         ;
+; gerador_clock.vhd                ; yes             ; User VHDL File  ; C:/Users/aluno/Desktop/P1/P1_JORGE_LUCAS/gerador_clock.vhd  ;         ;
+; P1.vhd                           ; yes             ; User VHDL File  ; C:/Users/aluno/Desktop/P1/P1_JORGE_LUCAS/P1.vhd             ;         ;
+; gerador_pwm.vhd                  ; yes             ; User VHDL File  ; C:/Users/aluno/Desktop/P1/P1_JORGE_LUCAS/gerador_pwm.vhd    ;         ;
+; maquina_estado.vhd               ; yes             ; User VHDL File  ; C:/Users/aluno/Desktop/P1/P1_JORGE_LUCAS/maquina_estado.vhd ;         ;
+; cont_display.vhd                 ; yes             ; User VHDL File  ; C:/Users/aluno/Desktop/P1/P1_JORGE_LUCAS/cont_display.vhd   ;         ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                      ;
++---------------------------------------------+------------------------------------+
+; Resource                                    ; Usage                              ;
++---------------------------------------------+------------------------------------+
+; Estimated Total logic elements              ; 81                                 ;
+;                                             ;                                    ;
+; Total combinational functions               ; 66                                 ;
+; Logic element usage by number of LUT inputs ;                                    ;
+;     -- 4 input functions                    ; 34                                 ;
+;     -- 3 input functions                    ; 29                                 ;
+;     -- <=2 input functions                  ; 3                                  ;
+;                                             ;                                    ;
+; Logic elements by mode                      ;                                    ;
+;     -- normal mode                          ; 66                                 ;
+;     -- arithmetic mode                      ; 0                                  ;
+;                                             ;                                    ;
+; Total registers                             ; 29                                 ;
+;     -- Dedicated logic registers            ; 29                                 ;
+;     -- I/O registers                        ; 0                                  ;
+;                                             ;                                    ;
+; I/O pins                                    ; 23                                 ;
+; Embedded Multiplier 9-bit elements          ; 0                                  ;
+; Maximum fan-out node                        ; gerador_clock:xgerador_clock|blink ;
+; Maximum fan-out                             ; 22                                 ;
+; Total fan-out                               ; 307                                ;
+; Average fan-out                             ; 2.60                               ;
++---------------------------------------------+------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                 ;
++-------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------+--------------+
+; Compilation Hierarchy Node          ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                ; Library Name ;
++-------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------+--------------+
+; |p1                                 ; 66 (0)            ; 29 (0)       ; 0           ; 0            ; 0       ; 0         ; 23   ; 0            ; |p1                                ; work         ;
+;    |cont_display:xcont_display|     ; 0 (0)             ; 15 (15)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |p1|cont_display:xcont_display     ; work         ;
+;    |conv_7seg:xconv_7seg0|          ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |p1|conv_7seg:xconv_7seg0          ; work         ;
+;    |conv_7seg:xconv_7seg1|          ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |p1|conv_7seg:xconv_7seg1          ; work         ;
+;    |conv_7seg:xconv_7seg2|          ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |p1|conv_7seg:xconv_7seg2          ; work         ;
+;    |gerador_clock:xgerador_clock|   ; 3 (3)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |p1|gerador_clock:xgerador_clock   ; work         ;
+;    |gerador_pwm:xgerador_pwm|       ; 9 (9)             ; 6 (6)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |p1|gerador_pwm:xgerador_pwm       ; work         ;
+;    |maquina_estado:xmaquina_estado| ; 12 (12)           ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |p1|maquina_estado:xmaquina_estado ; work         ;
++-------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                               ;
++----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
++----------------------------------------------------+---------------------+------------------------+
+; cont_display:xcont_display|en2                     ; VCC                 ; yes                    ;
+; cont_display:xcont_display|en1                     ; VCC                 ; yes                    ;
+; cont_display:xcont_display|en0                     ; VCC                 ; yes                    ;
+; Number of user-specified and inferred latches = 3  ;                     ;                        ;
++----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                   ;
++-----------------------------------------------------+------------------------------------------------+
+; Register name                                       ; Reason for Removal                             ;
++-----------------------------------------------------+------------------------------------------------+
+; cont_display:xcont_display|\controlador:vnum1[3]    ; Merged with cont_display:xcont_display|aux1[3] ;
+; cont_display:xcont_display|\controlador:vnum1[2]    ; Merged with cont_display:xcont_display|aux1[2] ;
+; cont_display:xcont_display|\controlador:vnum1[1]    ; Merged with cont_display:xcont_display|aux1[1] ;
+; cont_display:xcont_display|\controlador:vnum1[0]    ; Merged with cont_display:xcont_display|aux1[0] ;
+; cont_display:xcont_display|\controlador:vtipo2      ; Merged with cont_display:xcont_display|tipo2   ;
+; cont_display:xcont_display|\controlador:vtipo1      ; Merged with cont_display:xcont_display|tipo1   ;
+; cont_display:xcont_display|\controlador:vnum2[0]    ; Merged with cont_display:xcont_display|aux2[0] ;
+; cont_display:xcont_display|\controlador:vnum2[1]    ; Merged with cont_display:xcont_display|aux2[1] ;
+; cont_display:xcont_display|\controlador:vnum2[2]    ; Merged with cont_display:xcont_display|aux2[2] ;
+; cont_display:xcont_display|\controlador:vnum2[3]    ; Merged with cont_display:xcont_display|aux2[3] ;
+; gerador_clock:xgerador_clock|\clock1:contador1[2,3] ; Stuck at GND due to stuck port data_in         ;
+; Total Number of Removed Registers = 12              ;                                                ;
++-----------------------------------------------------+------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                       ;
++---------------------------------------------------+---------------------------+---------------------------------------------------+
+; Register name                                     ; Reason for Removal        ; Registers Removed due to This Register            ;
++---------------------------------------------------+---------------------------+---------------------------------------------------+
+; gerador_clock:xgerador_clock|\clock1:contador1[3] ; Stuck at GND              ; gerador_clock:xgerador_clock|\clock1:contador1[2] ;
+;                                                   ; due to stuck port data_in ;                                                   ;
++---------------------------------------------------+---------------------------+---------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 29    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; gerador_pwm:xgerador_pwm|aux2          ; 16      ;
+; gerador_pwm:xgerador_pwm|aux1          ; 6       ;
+; Total number of inverted registers = 2 ;         ;
++----------------------------------------+---------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Wed Sep 19 18:26:44 2018
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off P1 -c P1
+Warning (136002): Ignored duplicate of assignment PARTITION_PRESERVE_HIGH_SPEED_TILES for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_IGNORE_SOURCE_FILE_CHANGES for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_ALWAYS_USE_QXP_NETLIST for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_IMPORT_NEW_ASSIGNMENTS for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_IMPORT_EXISTING_ASSIGNMENTS for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_IMPORT_EXISTING_LOGICLOCK_REGIONS for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_IMPORT_PIN_ASSIGNMENTS for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_IMPORT_PROMOTE_ASSIGNMENTS for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_TYPE for node ""
+Warning (136002): Ignored duplicate of assignment ALLOW_MULTIPLE_PERSONAS for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_ASD_REGION_ID for node ""
+Warning (136002): Ignored duplicate of assignment CROSS_BOUNDARY_OPTIMIZATIONS for node ""
+Warning (136002): Ignored duplicate of assignment PROPAGATE_CONSTANTS_ON_INPUTS for node ""
+Warning (136002): Ignored duplicate of assignment PROPAGATE_INVERSIONS_ON_INPUTS for node ""
+Warning (136002): Ignored duplicate of assignment REMOVE_LOGIC_ON_UNCONNECTED_OUTPUTS for node ""
+Warning (136002): Ignored duplicate of assignment MERGE_EQUIVALENT_INPUTS for node ""
+Warning (136002): Ignored duplicate of assignment MERGE_EQUIVALENT_BIDIRS for node ""
+Warning (136002): Ignored duplicate of assignment ABSORB_PATHS_FROM_OUTPUTS_TO_INPUTS for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_EXTRACT_HARD_BLOCK_NODES for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_SOURCE for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_BACK_ANNOTATION for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_COLOR for node ""
+Warning (136002): Ignored duplicate of assignment HIERARCHY_BLACKBOX_FILE for node "|"
+Warning (136002): Ignored duplicate of assignment PARTITION_PRESERVE_HIGH_SPEED_TILES for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_IGNORE_SOURCE_FILE_CHANGES for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_ALWAYS_USE_QXP_NETLIST for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_IMPORT_NEW_ASSIGNMENTS for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_IMPORT_EXISTING_ASSIGNMENTS for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_IMPORT_EXISTING_LOGICLOCK_REGIONS for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_IMPORT_PIN_ASSIGNMENTS for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_IMPORT_PROMOTE_ASSIGNMENTS for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_TYPE for node ""
+Warning (136002): Ignored duplicate of assignment ALLOW_MULTIPLE_PERSONAS for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_ASD_REGION_ID for node ""
+Warning (136002): Ignored duplicate of assignment CROSS_BOUNDARY_OPTIMIZATIONS for node ""
+Warning (136002): Ignored duplicate of assignment PROPAGATE_CONSTANTS_ON_INPUTS for node ""
+Warning (136002): Ignored duplicate of assignment PROPAGATE_INVERSIONS_ON_INPUTS for node ""
+Warning (136002): Ignored duplicate of assignment REMOVE_LOGIC_ON_UNCONNECTED_OUTPUTS for node ""
+Warning (136002): Ignored duplicate of assignment MERGE_EQUIVALENT_INPUTS for node ""
+Warning (136002): Ignored duplicate of assignment MERGE_EQUIVALENT_BIDIRS for node ""
+Warning (136002): Ignored duplicate of assignment ABSORB_PATHS_FROM_OUTPUTS_TO_INPUTS for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_EXTRACT_HARD_BLOCK_NODES for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_SOURCE for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_BACK_ANNOTATION for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_COLOR for node ""
+Warning (136002): Ignored duplicate of assignment HIERARCHY_BLACKBOX_FILE for node "|"
+Warning (136002): Ignored duplicate of assignment PARTITION_PRESERVE_HIGH_SPEED_TILES for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_IGNORE_SOURCE_FILE_CHANGES for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_ALWAYS_USE_QXP_NETLIST for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_IMPORT_NEW_ASSIGNMENTS for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_IMPORT_EXISTING_ASSIGNMENTS for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_IMPORT_EXISTING_LOGICLOCK_REGIONS for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_IMPORT_PIN_ASSIGNMENTS for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_IMPORT_PROMOTE_ASSIGNMENTS for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_TYPE for node ""
+Warning (136002): Ignored duplicate of assignment ALLOW_MULTIPLE_PERSONAS for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_ASD_REGION_ID for node ""
+Warning (136002): Ignored duplicate of assignment CROSS_BOUNDARY_OPTIMIZATIONS for node ""
+Warning (136002): Ignored duplicate of assignment PROPAGATE_CONSTANTS_ON_INPUTS for node ""
+Warning (136002): Ignored duplicate of assignment PROPAGATE_INVERSIONS_ON_INPUTS for node ""
+Warning (136002): Ignored duplicate of assignment REMOVE_LOGIC_ON_UNCONNECTED_OUTPUTS for node ""
+Warning (136002): Ignored duplicate of assignment MERGE_EQUIVALENT_INPUTS for node ""
+Warning (136002): Ignored duplicate of assignment MERGE_EQUIVALENT_BIDIRS for node ""
+Warning (136002): Ignored duplicate of assignment ABSORB_PATHS_FROM_OUTPUTS_TO_INPUTS for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_EXTRACT_HARD_BLOCK_NODES for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_SOURCE for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_BACK_ANNOTATION for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_COLOR for node ""
+Warning (136002): Ignored duplicate of assignment HIERARCHY_BLACKBOX_FILE for node "|"
+Warning (136002): Ignored duplicate of assignment PARTITION_PRESERVE_HIGH_SPEED_TILES for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_IGNORE_SOURCE_FILE_CHANGES for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_ALWAYS_USE_QXP_NETLIST for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_IMPORT_NEW_ASSIGNMENTS for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_IMPORT_EXISTING_ASSIGNMENTS for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_IMPORT_EXISTING_LOGICLOCK_REGIONS for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_IMPORT_PIN_ASSIGNMENTS for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_IMPORT_PROMOTE_ASSIGNMENTS for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_TYPE for node ""
+Warning (136002): Ignored duplicate of assignment ALLOW_MULTIPLE_PERSONAS for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_ASD_REGION_ID for node ""
+Warning (136002): Ignored duplicate of assignment CROSS_BOUNDARY_OPTIMIZATIONS for node ""
+Warning (136002): Ignored duplicate of assignment PROPAGATE_CONSTANTS_ON_INPUTS for node ""
+Warning (136002): Ignored duplicate of assignment PROPAGATE_INVERSIONS_ON_INPUTS for node ""
+Warning (136002): Ignored duplicate of assignment REMOVE_LOGIC_ON_UNCONNECTED_OUTPUTS for node ""
+Warning (136002): Ignored duplicate of assignment MERGE_EQUIVALENT_INPUTS for node ""
+Warning (136002): Ignored duplicate of assignment MERGE_EQUIVALENT_BIDIRS for node ""
+Warning (136002): Ignored duplicate of assignment ABSORB_PATHS_FROM_OUTPUTS_TO_INPUTS for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_EXTRACT_HARD_BLOCK_NODES for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_SOURCE for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_BACK_ANNOTATION for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_COLOR for node ""
+Warning (136002): Ignored duplicate of assignment HIERARCHY_BLACKBOX_FILE for node "|"
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 2 design units, including 1 entities, in source file conv_7seg.vhd
+    Info (12022): Found design unit 1: conv_7seg-c_conv_7seg
+    Info (12023): Found entity 1: conv_7seg
+Info (12021): Found 2 design units, including 1 entities, in source file gerador_clock.vhd
+    Info (12022): Found design unit 1: gerador_clock-c_gerador_clock
+    Info (12023): Found entity 1: gerador_clock
+Info (12021): Found 2 design units, including 1 entities, in source file p1.vhd
+    Info (12022): Found design unit 1: p1-c_p1
+    Info (12023): Found entity 1: p1
+Info (12021): Found 2 design units, including 1 entities, in source file gerador_pwm.vhd
+    Info (12022): Found design unit 1: gerador_pwm-c_gerador_pwm
+    Info (12023): Found entity 1: gerador_pwm
+Info (12021): Found 2 design units, including 1 entities, in source file maquina_estado.vhd
+    Info (12022): Found design unit 1: maquina_estado-c_maquina_estado
+    Info (12023): Found entity 1: maquina_estado
+Info (12021): Found 2 design units, including 1 entities, in source file cont_display.vhd
+    Info (12022): Found design unit 1: cont_display-c_cont_display
+    Info (12023): Found entity 1: cont_display
+Info (12127): Elaborating entity "P1" for the top level hierarchy
+Info (12128): Elaborating entity "gerador_clock" for hierarchy "gerador_clock:xgerador_clock"
+Info (12128): Elaborating entity "gerador_pwm" for hierarchy "gerador_pwm:xgerador_pwm"
+Info (12128): Elaborating entity "maquina_estado" for hierarchy "maquina_estado:xmaquina_estado"
+Info (12128): Elaborating entity "cont_display" for hierarchy "cont_display:xcont_display"
+Info (10041): Inferred latch for "en0" at cont_display.vhd(39)
+Info (10041): Inferred latch for "en1" at cont_display.vhd(36)
+Info (10041): Inferred latch for "en2" at cont_display.vhd(33)
+Info (12128): Elaborating entity "conv_7seg" for hierarchy "conv_7seg:xconv_7seg0"
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 104 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 21 output pins
+    Info (21061): Implemented 81 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 93 warnings
+    Info: Peak virtual memory: 4666 megabytes
+    Info: Processing ended: Wed Sep 19 18:26:45 2018
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+

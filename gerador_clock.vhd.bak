@@ -1,0 +1,17 @@
+-- clock_in : clock simetrico com periodo T
+-- clock_out : clock simetrico com periodo 4T
+
+entity gerador_clock is
+port (
+	signal clock_in : in bit;
+	signal clock_out : out bit
+);
+end entity gerador_clock;
+
+architecture c_gerador_clock of gerador_clock is
+
+
+begin
+
+
+end;

@@ -1,0 +1,256 @@
+|P1
+clock => gerador_clock:xgerador_clock.clock
+clock => gerador_pwm:xgerador_pwm.clock
+controle => maquina_estado:xmaquina_estado.controle
+disp2[0] <= conv_7seg:xconv_7seg0.display[0]
+disp2[1] <= conv_7seg:xconv_7seg0.display[1]
+disp2[2] <= conv_7seg:xconv_7seg0.display[2]
+disp2[3] <= conv_7seg:xconv_7seg0.display[3]
+disp2[4] <= conv_7seg:xconv_7seg0.display[4]
+disp2[5] <= conv_7seg:xconv_7seg0.display[5]
+disp2[6] <= conv_7seg:xconv_7seg0.display[6]
+disp1[0] <= conv_7seg:xconv_7seg1.display[0]
+disp1[1] <= conv_7seg:xconv_7seg1.display[1]
+disp1[2] <= conv_7seg:xconv_7seg1.display[2]
+disp1[3] <= conv_7seg:xconv_7seg1.display[3]
+disp1[4] <= conv_7seg:xconv_7seg1.display[4]
+disp1[5] <= conv_7seg:xconv_7seg1.display[5]
+disp1[6] <= conv_7seg:xconv_7seg1.display[6]
+disp0[0] <= conv_7seg:xconv_7seg2.display[0]
+disp0[1] <= conv_7seg:xconv_7seg2.display[1]
+disp0[2] <= conv_7seg:xconv_7seg2.display[2]
+disp0[3] <= conv_7seg:xconv_7seg2.display[3]
+disp0[4] <= conv_7seg:xconv_7seg2.display[4]
+disp0[5] <= conv_7seg:xconv_7seg2.display[5]
+disp0[6] <= conv_7seg:xconv_7seg2.display[6]
+
+
+|P1|gerador_clock:xgerador_clock
+clock => blink.CLK
+clock => \clock1:contador1[0].CLK
+clock => \clock1:contador1[1].CLK
+clock => \clock1:contador1[2].CLK
+clock => \clock1:contador1[3].CLK
+pisca <= blink.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|P1|gerador_pwm:xgerador_pwm
+clock => aux2.CLK
+clock => aux1.CLK
+clock => \pwm:contador[0].CLK
+clock => \pwm:contador[1].CLK
+clock => \pwm:contador[2].CLK
+clock => \pwm:contador[3].CLK
+pwm1 <= aux1.DB_MAX_OUTPUT_PORT_TYPE
+pwm2 <= aux2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|P1|maquina_estado:xmaquina_estado
+pwm1 => tipo_aux.CLK
+pwm1 => est_aux[0].CLK
+pwm1 => est_aux[1].CLK
+pwm1 => est_aux[2].CLK
+pwm1 => est_aux[3].CLK
+controle => est_aux~0.OUTPUTSELECT
+controle => est_aux~1.OUTPUTSELECT
+controle => est_aux~2.OUTPUTSELECT
+controle => est_aux~3.OUTPUTSELECT
+controle => tipo_aux~0.OUTPUTSELECT
+estado[0] <= est_aux[0].DB_MAX_OUTPUT_PORT_TYPE
+estado[1] <= est_aux[1].DB_MAX_OUTPUT_PORT_TYPE
+estado[2] <= est_aux[2].DB_MAX_OUTPUT_PORT_TYPE
+estado[3] <= est_aux[3].DB_MAX_OUTPUT_PORT_TYPE
+tipo <= tipo_aux.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|P1|cont_display:xcont_display
+pwm2 => tipo0.CLK
+pwm2 => tipo1.CLK
+pwm2 => tipo2.CLK
+pwm2 => aux0[0].CLK
+pwm2 => aux0[1].CLK
+pwm2 => aux0[2].CLK
+pwm2 => aux0[3].CLK
+pwm2 => aux1[0].CLK
+pwm2 => aux1[1].CLK
+pwm2 => aux1[2].CLK
+pwm2 => aux1[3].CLK
+pwm2 => aux2[0].CLK
+pwm2 => aux2[1].CLK
+pwm2 => aux2[2].CLK
+pwm2 => aux2[3].CLK
+pwm2 => \controlador:vtipo2.CLK
+pwm2 => \controlador:vtipo1.CLK
+pwm2 => \controlador:vnum2[0].CLK
+pwm2 => \controlador:vnum2[1].CLK
+pwm2 => \controlador:vnum2[2].CLK
+pwm2 => \controlador:vnum2[3].CLK
+pwm2 => \controlador:vnum1[0].CLK
+pwm2 => \controlador:vnum1[1].CLK
+pwm2 => \controlador:vnum1[2].CLK
+pwm2 => \controlador:vnum1[3].CLK
+pisca => en0$latch.DATAIN
+pisca => en1$latch.DATAIN
+pisca => en2$latch.DATAIN
+estado[0] => aux2[0].DATAIN
+estado[0] => \controlador:vnum2[0].DATAIN
+estado[1] => aux2[1].DATAIN
+estado[1] => \controlador:vnum2[1].DATAIN
+estado[2] => aux2[2].DATAIN
+estado[2] => \controlador:vnum2[2].DATAIN
+estado[3] => aux2[3].DATAIN
+estado[3] => \controlador:vnum2[3].DATAIN
+tipo => tipo2.DATAIN
+tipo => \controlador:vtipo2.DATAIN
+num2[0] <= aux2[0].DB_MAX_OUTPUT_PORT_TYPE
+num2[1] <= aux2[1].DB_MAX_OUTPUT_PORT_TYPE
+num2[2] <= aux2[2].DB_MAX_OUTPUT_PORT_TYPE
+num2[3] <= aux2[3].DB_MAX_OUTPUT_PORT_TYPE
+num1[0] <= aux1[0].DB_MAX_OUTPUT_PORT_TYPE
+num1[1] <= aux1[1].DB_MAX_OUTPUT_PORT_TYPE
+num1[2] <= aux1[2].DB_MAX_OUTPUT_PORT_TYPE
+num1[3] <= aux1[3].DB_MAX_OUTPUT_PORT_TYPE
+num0[0] <= aux0[0].DB_MAX_OUTPUT_PORT_TYPE
+num0[1] <= aux0[1].DB_MAX_OUTPUT_PORT_TYPE
+num0[2] <= aux0[2].DB_MAX_OUTPUT_PORT_TYPE
+num0[3] <= aux0[3].DB_MAX_OUTPUT_PORT_TYPE
+en2 <= en2$latch.DB_MAX_OUTPUT_PORT_TYPE
+en1 <= en1$latch.DB_MAX_OUTPUT_PORT_TYPE
+en0 <= en0$latch.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|P1|conv_7seg:xconv_7seg0
+en => display~0.OUTPUTSELECT
+en => display~1.OUTPUTSELECT
+en => display~2.OUTPUTSELECT
+en => display~3.OUTPUTSELECT
+en => display~4.OUTPUTSELECT
+en => display~5.OUTPUTSELECT
+en => display~6.OUTPUTSELECT
+dado[0] => Mux0.IN19
+dado[0] => Mux1.IN19
+dado[0] => Mux2.IN19
+dado[0] => Mux3.IN19
+dado[0] => Mux4.IN19
+dado[0] => Mux5.IN19
+dado[0] => Mux6.IN19
+dado[1] => Mux0.IN18
+dado[1] => Mux1.IN18
+dado[1] => Mux2.IN18
+dado[1] => Mux3.IN18
+dado[1] => Mux4.IN18
+dado[1] => Mux5.IN18
+dado[1] => Mux6.IN18
+dado[2] => Mux0.IN17
+dado[2] => Mux1.IN17
+dado[2] => Mux2.IN17
+dado[2] => Mux3.IN17
+dado[2] => Mux4.IN17
+dado[2] => Mux5.IN17
+dado[2] => Mux6.IN17
+dado[3] => Mux0.IN16
+dado[3] => Mux1.IN16
+dado[3] => Mux2.IN16
+dado[3] => Mux3.IN16
+dado[3] => Mux4.IN16
+dado[3] => Mux5.IN16
+dado[3] => Mux6.IN16
+display[0] <= display~6.DB_MAX_OUTPUT_PORT_TYPE
+display[1] <= display~5.DB_MAX_OUTPUT_PORT_TYPE
+display[2] <= display~4.DB_MAX_OUTPUT_PORT_TYPE
+display[3] <= display~3.DB_MAX_OUTPUT_PORT_TYPE
+display[4] <= display~2.DB_MAX_OUTPUT_PORT_TYPE
+display[5] <= display~1.DB_MAX_OUTPUT_PORT_TYPE
+display[6] <= display~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|P1|conv_7seg:xconv_7seg1
+en => display~0.OUTPUTSELECT
+en => display~1.OUTPUTSELECT
+en => display~2.OUTPUTSELECT
+en => display~3.OUTPUTSELECT
+en => display~4.OUTPUTSELECT
+en => display~5.OUTPUTSELECT
+en => display~6.OUTPUTSELECT
+dado[0] => Mux0.IN19
+dado[0] => Mux1.IN19
+dado[0] => Mux2.IN19
+dado[0] => Mux3.IN19
+dado[0] => Mux4.IN19
+dado[0] => Mux5.IN19
+dado[0] => Mux6.IN19
+dado[1] => Mux0.IN18
+dado[1] => Mux1.IN18
+dado[1] => Mux2.IN18
+dado[1] => Mux3.IN18
+dado[1] => Mux4.IN18
+dado[1] => Mux5.IN18
+dado[1] => Mux6.IN18
+dado[2] => Mux0.IN17
+dado[2] => Mux1.IN17
+dado[2] => Mux2.IN17
+dado[2] => Mux3.IN17
+dado[2] => Mux4.IN17
+dado[2] => Mux5.IN17
+dado[2] => Mux6.IN17
+dado[3] => Mux0.IN16
+dado[3] => Mux1.IN16
+dado[3] => Mux2.IN16
+dado[3] => Mux3.IN16
+dado[3] => Mux4.IN16
+dado[3] => Mux5.IN16
+dado[3] => Mux6.IN16
+display[0] <= display~6.DB_MAX_OUTPUT_PORT_TYPE
+display[1] <= display~5.DB_MAX_OUTPUT_PORT_TYPE
+display[2] <= display~4.DB_MAX_OUTPUT_PORT_TYPE
+display[3] <= display~3.DB_MAX_OUTPUT_PORT_TYPE
+display[4] <= display~2.DB_MAX_OUTPUT_PORT_TYPE
+display[5] <= display~1.DB_MAX_OUTPUT_PORT_TYPE
+display[6] <= display~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|P1|conv_7seg:xconv_7seg2
+en => display~0.OUTPUTSELECT
+en => display~1.OUTPUTSELECT
+en => display~2.OUTPUTSELECT
+en => display~3.OUTPUTSELECT
+en => display~4.OUTPUTSELECT
+en => display~5.OUTPUTSELECT
+en => display~6.OUTPUTSELECT
+dado[0] => Mux0.IN19
+dado[0] => Mux1.IN19
+dado[0] => Mux2.IN19
+dado[0] => Mux3.IN19
+dado[0] => Mux4.IN19
+dado[0] => Mux5.IN19
+dado[0] => Mux6.IN19
+dado[1] => Mux0.IN18
+dado[1] => Mux1.IN18
+dado[1] => Mux2.IN18
+dado[1] => Mux3.IN18
+dado[1] => Mux4.IN18
+dado[1] => Mux5.IN18
+dado[1] => Mux6.IN18
+dado[2] => Mux0.IN17
+dado[2] => Mux1.IN17
+dado[2] => Mux2.IN17
+dado[2] => Mux3.IN17
+dado[2] => Mux4.IN17
+dado[2] => Mux5.IN17
+dado[2] => Mux6.IN17
+dado[3] => Mux0.IN16
+dado[3] => Mux1.IN16
+dado[3] => Mux2.IN16
+dado[3] => Mux3.IN16
+dado[3] => Mux4.IN16
+dado[3] => Mux5.IN16
+dado[3] => Mux6.IN16
+display[0] <= display~6.DB_MAX_OUTPUT_PORT_TYPE
+display[1] <= display~5.DB_MAX_OUTPUT_PORT_TYPE
+display[2] <= display~4.DB_MAX_OUTPUT_PORT_TYPE
+display[3] <= display~3.DB_MAX_OUTPUT_PORT_TYPE
+display[4] <= display~2.DB_MAX_OUTPUT_PORT_TYPE
+display[5] <= display~1.DB_MAX_OUTPUT_PORT_TYPE
+display[6] <= display~0.DB_MAX_OUTPUT_PORT_TYPE
+
+

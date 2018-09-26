@@ -1,0 +1,16 @@
+entity cont_display is
+port (
+signal pwm2 : in bit;
+signal estado : in bit_vector (3 downto 0);
+
+);
+end entity cont_display;
+
+architecture c_cont_display of cont_display is
+
+begin
+
+
+
+
+end architecture c_cont_display;

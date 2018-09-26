@@ -1,0 +1,1487 @@
+TimeQuest Timing Analyzer report for P1
+Wed Sep 19 18:26:56 2018
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow Model Fmax Summary
+  6. Slow Model Setup Summary
+  7. Slow Model Hold Summary
+  8. Slow Model Recovery Summary
+  9. Slow Model Removal Summary
+ 10. Slow Model Minimum Pulse Width Summary
+ 11. Slow Model Setup: 'gerador_pwm:xgerador_pwm|aux1'
+ 12. Slow Model Setup: 'clock'
+ 13. Slow Model Setup: 'gerador_pwm:xgerador_pwm|aux2'
+ 14. Slow Model Hold: 'clock'
+ 15. Slow Model Hold: 'gerador_pwm:xgerador_pwm|aux1'
+ 16. Slow Model Hold: 'gerador_pwm:xgerador_pwm|aux2'
+ 17. Slow Model Minimum Pulse Width: 'clock'
+ 18. Slow Model Minimum Pulse Width: 'gerador_pwm:xgerador_pwm|aux2'
+ 19. Slow Model Minimum Pulse Width: 'gerador_pwm:xgerador_pwm|aux1'
+ 20. Setup Times
+ 21. Hold Times
+ 22. Clock to Output Times
+ 23. Minimum Clock to Output Times
+ 24. Fast Model Setup Summary
+ 25. Fast Model Hold Summary
+ 26. Fast Model Recovery Summary
+ 27. Fast Model Removal Summary
+ 28. Fast Model Minimum Pulse Width Summary
+ 29. Fast Model Setup: 'gerador_pwm:xgerador_pwm|aux1'
+ 30. Fast Model Setup: 'clock'
+ 31. Fast Model Setup: 'gerador_pwm:xgerador_pwm|aux2'
+ 32. Fast Model Hold: 'clock'
+ 33. Fast Model Hold: 'gerador_pwm:xgerador_pwm|aux1'
+ 34. Fast Model Hold: 'gerador_pwm:xgerador_pwm|aux2'
+ 35. Fast Model Minimum Pulse Width: 'clock'
+ 36. Fast Model Minimum Pulse Width: 'gerador_pwm:xgerador_pwm|aux2'
+ 37. Fast Model Minimum Pulse Width: 'gerador_pwm:xgerador_pwm|aux1'
+ 38. Setup Times
+ 39. Hold Times
+ 40. Clock to Output Times
+ 41. Minimum Clock to Output Times
+ 42. Multicorner Timing Analysis Summary
+ 43. Setup Times
+ 44. Hold Times
+ 45. Clock to Output Times
+ 46. Minimum Clock to Output Times
+ 47. Setup Transfers
+ 48. Hold Transfers
+ 49. Report TCCS
+ 50. Report RSKM
+ 51. Unconstrained Paths
+ 52. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                                      ;
++--------------------+-------------------------------------------------------------------+
+; Quartus II Version ; Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition ;
+; Revision Name      ; P1                                                                ;
+; Device Family      ; Cyclone II                                                        ;
+; Device Name        ; EP2C35F672C6                                                      ;
+; Timing Models      ; Final                                                             ;
+; Delay Model        ; Combined                                                          ;
+; Rise/Fall Delays   ; Unavailable                                                       ;
++--------------------+-------------------------------------------------------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                                                       ;
++-------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------------------------------+
+; Clock Name                    ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets                           ;
++-------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------------------------------+
+; clock                         ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clock }                         ;
+; gerador_pwm:xgerador_pwm|aux1 ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { gerador_pwm:xgerador_pwm|aux1 } ;
+; gerador_pwm:xgerador_pwm|aux2 ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { gerador_pwm:xgerador_pwm|aux2 } ;
++-------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Fmax Summary                                                                                                      ;
++------------+-----------------+-------------------------------+---------------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name                    ; Note                                                          ;
++------------+-----------------+-------------------------------+---------------------------------------------------------------+
+; 561.8 MHz  ; 500.0 MHz       ; gerador_pwm:xgerador_pwm|aux1 ; limit due to high minimum pulse width violation (tch)         ;
+; 569.48 MHz ; 420.17 MHz      ; clock                         ; limit due to minimum period restriction (max I/O toggle rate) ;
+; 932.84 MHz ; 500.0 MHz       ; gerador_pwm:xgerador_pwm|aux2 ; limit due to high minimum pulse width violation (tch)         ;
++------------+-----------------+-------------------------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++--------------------------------------------------------+
+; Slow Model Setup Summary                               ;
++-------------------------------+--------+---------------+
+; Clock                         ; Slack  ; End Point TNS ;
++-------------------------------+--------+---------------+
+; gerador_pwm:xgerador_pwm|aux1 ; -0.780 ; -2.643        ;
+; clock                         ; -0.756 ; -2.183        ;
+; gerador_pwm:xgerador_pwm|aux2 ; -0.108 ; -0.408        ;
++-------------------------------+--------+---------------+
+
+
++--------------------------------------------------------+
+; Slow Model Hold Summary                                ;
++-------------------------------+--------+---------------+
+; Clock                         ; Slack  ; End Point TNS ;
++-------------------------------+--------+---------------+
+; clock                         ; -2.540 ; -5.080        ;
+; gerador_pwm:xgerador_pwm|aux1 ; 0.391  ; 0.000         ;
+; gerador_pwm:xgerador_pwm|aux2 ; 0.523  ; 0.000         ;
++-------------------------------+--------+---------------+
+
+
+-------------------------------
+; Slow Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Slow Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++--------------------------------------------------------+
+; Slow Model Minimum Pulse Width Summary                 ;
++-------------------------------+--------+---------------+
+; Clock                         ; Slack  ; End Point TNS ;
++-------------------------------+--------+---------------+
+; clock                         ; -1.380 ; -10.380       ;
+; gerador_pwm:xgerador_pwm|aux2 ; -0.500 ; -15.000       ;
+; gerador_pwm:xgerador_pwm|aux1 ; -0.500 ; -5.000        ;
++-------------------------------+--------+---------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Setup: 'gerador_pwm:xgerador_pwm|aux1'                                                                                                                                                       ;
++--------+-------------------------------------------+-------------------------------------------+-------------------------------+-------------------------------+--------------+------------+------------+
+; Slack  ; From Node                                 ; To Node                                   ; Launch Clock                  ; Latch Clock                   ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------------------------+-------------------------------------------+-------------------------------+-------------------------------+--------------+------------+------------+
+; -0.780 ; maquina_estado:xmaquina_estado|est_aux[1] ; maquina_estado:xmaquina_estado|est_aux[0] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 1.000        ; 0.000      ; 1.816      ;
+; -0.759 ; maquina_estado:xmaquina_estado|est_aux[2] ; maquina_estado:xmaquina_estado|est_aux[0] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 1.000        ; 0.000      ; 1.795      ;
+; -0.677 ; maquina_estado:xmaquina_estado|est_aux[3] ; maquina_estado:xmaquina_estado|est_aux[0] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 1.000        ; 0.000      ; 1.713      ;
+; -0.584 ; maquina_estado:xmaquina_estado|est_aux[2] ; maquina_estado:xmaquina_estado|tipo_aux   ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 1.000        ; 0.000      ; 1.620      ;
+; -0.513 ; maquina_estado:xmaquina_estado|est_aux[1] ; maquina_estado:xmaquina_estado|tipo_aux   ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 1.000        ; 0.000      ; 1.549      ;
+; -0.485 ; maquina_estado:xmaquina_estado|est_aux[1] ; maquina_estado:xmaquina_estado|est_aux[2] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 1.000        ; 0.000      ; 1.521      ;
+; -0.483 ; maquina_estado:xmaquina_estado|est_aux[0] ; maquina_estado:xmaquina_estado|tipo_aux   ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 1.000        ; 0.000      ; 1.519      ;
+; -0.458 ; maquina_estado:xmaquina_estado|est_aux[1] ; maquina_estado:xmaquina_estado|est_aux[3] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 1.000        ; 0.000      ; 1.494      ;
+; -0.336 ; maquina_estado:xmaquina_estado|est_aux[0] ; maquina_estado:xmaquina_estado|est_aux[1] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 1.000        ; 0.000      ; 1.372      ;
+; -0.221 ; maquina_estado:xmaquina_estado|est_aux[0] ; maquina_estado:xmaquina_estado|est_aux[2] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 1.000        ; 0.000      ; 1.257      ;
+; -0.217 ; maquina_estado:xmaquina_estado|est_aux[2] ; maquina_estado:xmaquina_estado|est_aux[3] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 1.000        ; 0.000      ; 1.253      ;
+; -0.204 ; maquina_estado:xmaquina_estado|est_aux[3] ; maquina_estado:xmaquina_estado|est_aux[2] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 1.000        ; 0.000      ; 1.240      ;
+; -0.200 ; maquina_estado:xmaquina_estado|est_aux[3] ; maquina_estado:xmaquina_estado|est_aux[1] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 1.000        ; 0.000      ; 1.236      ;
+; -0.077 ; maquina_estado:xmaquina_estado|est_aux[3] ; maquina_estado:xmaquina_estado|tipo_aux   ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 1.000        ; 0.000      ; 1.113      ;
+; -0.075 ; maquina_estado:xmaquina_estado|est_aux[2] ; maquina_estado:xmaquina_estado|est_aux[1] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 1.000        ; 0.000      ; 1.111      ;
+; -0.064 ; maquina_estado:xmaquina_estado|est_aux[0] ; maquina_estado:xmaquina_estado|est_aux[3] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 1.000        ; 0.000      ; 1.100      ;
+; 0.379  ; maquina_estado:xmaquina_estado|est_aux[0] ; maquina_estado:xmaquina_estado|est_aux[0] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 1.000        ; 0.000      ; 0.657      ;
+; 0.379  ; maquina_estado:xmaquina_estado|est_aux[2] ; maquina_estado:xmaquina_estado|est_aux[2] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 1.000        ; 0.000      ; 0.657      ;
+; 0.379  ; maquina_estado:xmaquina_estado|est_aux[3] ; maquina_estado:xmaquina_estado|est_aux[3] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 1.000        ; 0.000      ; 0.657      ;
+; 0.379  ; maquina_estado:xmaquina_estado|est_aux[1] ; maquina_estado:xmaquina_estado|est_aux[1] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 1.000        ; 0.000      ; 0.657      ;
++--------+-------------------------------------------+-------------------------------------------+-------------------------------+-------------------------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Setup: 'clock'                                                                                                                                                                             ;
++--------+---------------------------------------------------+---------------------------------------------------+-------------------------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                         ; To Node                                           ; Launch Clock                  ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+---------------------------------------------------+---------------------------------------------------+-------------------------------+-------------+--------------+------------+------------+
+; -0.756 ; gerador_pwm:xgerador_pwm|\pwm:contador[1]         ; gerador_pwm:xgerador_pwm|aux2                     ; clock                         ; clock       ; 1.000        ; 0.000      ; 1.792      ;
+; -0.741 ; gerador_pwm:xgerador_pwm|\pwm:contador[0]         ; gerador_pwm:xgerador_pwm|aux2                     ; clock                         ; clock       ; 1.000        ; 0.000      ; 1.777      ;
+; -0.739 ; gerador_pwm:xgerador_pwm|\pwm:contador[1]         ; gerador_pwm:xgerador_pwm|aux1                     ; clock                         ; clock       ; 1.000        ; 0.000      ; 1.775      ;
+; -0.726 ; gerador_pwm:xgerador_pwm|\pwm:contador[0]         ; gerador_pwm:xgerador_pwm|aux1                     ; clock                         ; clock       ; 1.000        ; 0.000      ; 1.762      ;
+; -0.572 ; gerador_pwm:xgerador_pwm|\pwm:contador[2]         ; gerador_pwm:xgerador_pwm|aux2                     ; clock                         ; clock       ; 1.000        ; 0.000      ; 1.608      ;
+; -0.523 ; gerador_pwm:xgerador_pwm|\pwm:contador[2]         ; gerador_pwm:xgerador_pwm|aux1                     ; clock                         ; clock       ; 1.000        ; 0.000      ; 1.559      ;
+; -0.475 ; gerador_pwm:xgerador_pwm|\pwm:contador[3]         ; gerador_pwm:xgerador_pwm|aux2                     ; clock                         ; clock       ; 1.000        ; 0.000      ; 1.511      ;
+; -0.473 ; gerador_pwm:xgerador_pwm|\pwm:contador[3]         ; gerador_pwm:xgerador_pwm|aux1                     ; clock                         ; clock       ; 1.000        ; 0.000      ; 1.509      ;
+; -0.249 ; gerador_pwm:xgerador_pwm|\pwm:contador[3]         ; gerador_pwm:xgerador_pwm|\pwm:contador[1]         ; clock                         ; clock       ; 1.000        ; 0.000      ; 1.285      ;
+; -0.249 ; gerador_pwm:xgerador_pwm|\pwm:contador[3]         ; gerador_pwm:xgerador_pwm|\pwm:contador[0]         ; clock                         ; clock       ; 1.000        ; 0.000      ; 1.285      ;
+; -0.086 ; gerador_pwm:xgerador_pwm|\pwm:contador[1]         ; gerador_pwm:xgerador_pwm|\pwm:contador[2]         ; clock                         ; clock       ; 1.000        ; 0.000      ; 1.122      ;
+; -0.082 ; gerador_pwm:xgerador_pwm|\pwm:contador[1]         ; gerador_pwm:xgerador_pwm|\pwm:contador[3]         ; clock                         ; clock       ; 1.000        ; 0.000      ; 1.118      ;
+; -0.072 ; gerador_pwm:xgerador_pwm|\pwm:contador[0]         ; gerador_pwm:xgerador_pwm|\pwm:contador[2]         ; clock                         ; clock       ; 1.000        ; 0.000      ; 1.108      ;
+; -0.069 ; gerador_pwm:xgerador_pwm|\pwm:contador[0]         ; gerador_pwm:xgerador_pwm|\pwm:contador[1]         ; clock                         ; clock       ; 1.000        ; 0.000      ; 1.105      ;
+; -0.064 ; gerador_pwm:xgerador_pwm|\pwm:contador[0]         ; gerador_pwm:xgerador_pwm|\pwm:contador[3]         ; clock                         ; clock       ; 1.000        ; 0.000      ; 1.100      ;
+; -0.022 ; gerador_clock:xgerador_clock|\clock1:contador1[1] ; gerador_clock:xgerador_clock|blink                ; clock                         ; clock       ; 1.000        ; 0.000      ; 1.058      ;
+; 0.077  ; gerador_pwm:xgerador_pwm|\pwm:contador[2]         ; gerador_pwm:xgerador_pwm|\pwm:contador[1]         ; clock                         ; clock       ; 1.000        ; 0.000      ; 0.959      ;
+; 0.077  ; gerador_pwm:xgerador_pwm|\pwm:contador[2]         ; gerador_pwm:xgerador_pwm|\pwm:contador[3]         ; clock                         ; clock       ; 1.000        ; 0.000      ; 0.959      ;
+; 0.078  ; gerador_pwm:xgerador_pwm|\pwm:contador[2]         ; gerador_pwm:xgerador_pwm|\pwm:contador[0]         ; clock                         ; clock       ; 1.000        ; 0.000      ; 0.958      ;
+; 0.224  ; gerador_pwm:xgerador_pwm|\pwm:contador[3]         ; gerador_pwm:xgerador_pwm|\pwm:contador[2]         ; clock                         ; clock       ; 1.000        ; 0.000      ; 0.812      ;
+; 0.245  ; gerador_clock:xgerador_clock|\clock1:contador1[0] ; gerador_clock:xgerador_clock|blink                ; clock                         ; clock       ; 1.000        ; 0.000      ; 0.791      ;
+; 0.248  ; gerador_clock:xgerador_clock|\clock1:contador1[0] ; gerador_clock:xgerador_clock|\clock1:contador1[1] ; clock                         ; clock       ; 1.000        ; 0.000      ; 0.788      ;
+; 0.379  ; gerador_clock:xgerador_clock|\clock1:contador1[0] ; gerador_clock:xgerador_clock|\clock1:contador1[0] ; clock                         ; clock       ; 1.000        ; 0.000      ; 0.657      ;
+; 0.379  ; gerador_pwm:xgerador_pwm|\pwm:contador[1]         ; gerador_pwm:xgerador_pwm|\pwm:contador[1]         ; clock                         ; clock       ; 1.000        ; 0.000      ; 0.657      ;
+; 0.379  ; gerador_pwm:xgerador_pwm|\pwm:contador[0]         ; gerador_pwm:xgerador_pwm|\pwm:contador[0]         ; clock                         ; clock       ; 1.000        ; 0.000      ; 0.657      ;
+; 0.379  ; gerador_pwm:xgerador_pwm|\pwm:contador[2]         ; gerador_pwm:xgerador_pwm|\pwm:contador[2]         ; clock                         ; clock       ; 1.000        ; 0.000      ; 0.657      ;
+; 0.379  ; gerador_pwm:xgerador_pwm|\pwm:contador[3]         ; gerador_pwm:xgerador_pwm|\pwm:contador[3]         ; clock                         ; clock       ; 1.000        ; 0.000      ; 0.657      ;
+; 0.379  ; gerador_clock:xgerador_clock|blink                ; gerador_clock:xgerador_clock|blink                ; clock                         ; clock       ; 1.000        ; 0.000      ; 0.657      ;
+; 0.379  ; gerador_clock:xgerador_clock|\clock1:contador1[1] ; gerador_clock:xgerador_clock|\clock1:contador1[1] ; clock                         ; clock       ; 1.000        ; 0.000      ; 0.657      ;
+; 2.810  ; gerador_pwm:xgerador_pwm|aux2                     ; gerador_pwm:xgerador_pwm|aux2                     ; gerador_pwm:xgerador_pwm|aux2 ; clock       ; 0.500        ; 2.681      ; 0.657      ;
+; 2.810  ; gerador_pwm:xgerador_pwm|aux1                     ; gerador_pwm:xgerador_pwm|aux1                     ; gerador_pwm:xgerador_pwm|aux1 ; clock       ; 0.500        ; 2.681      ; 0.657      ;
+; 3.310  ; gerador_pwm:xgerador_pwm|aux2                     ; gerador_pwm:xgerador_pwm|aux2                     ; gerador_pwm:xgerador_pwm|aux2 ; clock       ; 1.000        ; 2.681      ; 0.657      ;
+; 3.310  ; gerador_pwm:xgerador_pwm|aux1                     ; gerador_pwm:xgerador_pwm|aux1                     ; gerador_pwm:xgerador_pwm|aux1 ; clock       ; 1.000        ; 2.681      ; 0.657      ;
++--------+---------------------------------------------------+---------------------------------------------------+-------------------------------+-------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Setup: 'gerador_pwm:xgerador_pwm|aux2'                                                                                                                                                ;
++--------+-------------------------------------------+------------------------------------+-------------------------------+-------------------------------+--------------+------------+------------+
+; Slack  ; From Node                                 ; To Node                            ; Launch Clock                  ; Latch Clock                   ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------------------------+------------------------------------+-------------------------------+-------------------------------+--------------+------------+------------+
+; -0.108 ; maquina_estado:xmaquina_estado|tipo_aux   ; cont_display:xcont_display|tipo2   ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux2 ; 1.000        ; -0.001     ; 1.143      ;
+; -0.086 ; maquina_estado:xmaquina_estado|est_aux[3] ; cont_display:xcont_display|aux2[3] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux2 ; 1.000        ; 0.002      ; 1.124      ;
+; -0.074 ; maquina_estado:xmaquina_estado|est_aux[2] ; cont_display:xcont_display|aux2[2] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux2 ; 1.000        ; 0.001      ; 1.111      ;
+; -0.072 ; cont_display:xcont_display|aux2[2]        ; cont_display:xcont_display|aux1[2] ; gerador_pwm:xgerador_pwm|aux2 ; gerador_pwm:xgerador_pwm|aux2 ; 1.000        ; 0.001      ; 1.109      ;
+; -0.068 ; maquina_estado:xmaquina_estado|est_aux[1] ; cont_display:xcont_display|aux2[1] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux2 ; 1.000        ; 0.002      ; 1.106      ;
+; 0.048  ; cont_display:xcont_display|aux1[2]        ; cont_display:xcont_display|aux0[2] ; gerador_pwm:xgerador_pwm|aux2 ; gerador_pwm:xgerador_pwm|aux2 ; 1.000        ; 0.000      ; 0.988      ;
+; 0.063  ; cont_display:xcont_display|aux1[1]        ; cont_display:xcont_display|aux0[1] ; gerador_pwm:xgerador_pwm|aux2 ; gerador_pwm:xgerador_pwm|aux2 ; 1.000        ; 0.000      ; 0.973      ;
+; 0.064  ; cont_display:xcont_display|aux2[1]        ; cont_display:xcont_display|aux1[1] ; gerador_pwm:xgerador_pwm|aux2 ; gerador_pwm:xgerador_pwm|aux2 ; 1.000        ; 0.000      ; 0.972      ;
+; 0.065  ; cont_display:xcont_display|aux1[3]        ; cont_display:xcont_display|aux0[3] ; gerador_pwm:xgerador_pwm|aux2 ; gerador_pwm:xgerador_pwm|aux2 ; 1.000        ; 0.000      ; 0.971      ;
+; 0.070  ; maquina_estado:xmaquina_estado|est_aux[0] ; cont_display:xcont_display|aux2[0] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux2 ; 1.000        ; 0.001      ; 0.967      ;
+; 0.079  ; cont_display:xcont_display|aux2[3]        ; cont_display:xcont_display|aux1[3] ; gerador_pwm:xgerador_pwm|aux2 ; gerador_pwm:xgerador_pwm|aux2 ; 1.000        ; 0.000      ; 0.957      ;
+; 0.083  ; cont_display:xcont_display|aux2[0]        ; cont_display:xcont_display|aux1[0] ; gerador_pwm:xgerador_pwm|aux2 ; gerador_pwm:xgerador_pwm|aux2 ; 1.000        ; 0.000      ; 0.953      ;
+; 0.083  ; cont_display:xcont_display|aux1[0]        ; cont_display:xcont_display|aux0[0] ; gerador_pwm:xgerador_pwm|aux2 ; gerador_pwm:xgerador_pwm|aux2 ; 1.000        ; 0.000      ; 0.953      ;
+; 0.235  ; cont_display:xcont_display|tipo2          ; cont_display:xcont_display|tipo1   ; gerador_pwm:xgerador_pwm|aux2 ; gerador_pwm:xgerador_pwm|aux2 ; 1.000        ; 0.000      ; 0.801      ;
+; 0.247  ; cont_display:xcont_display|tipo1          ; cont_display:xcont_display|tipo0   ; gerador_pwm:xgerador_pwm|aux2 ; gerador_pwm:xgerador_pwm|aux2 ; 1.000        ; 0.000      ; 0.789      ;
++--------+-------------------------------------------+------------------------------------+-------------------------------+-------------------------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Hold: 'clock'                                                                                                                                                                              ;
++--------+---------------------------------------------------+---------------------------------------------------+-------------------------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                         ; To Node                                           ; Launch Clock                  ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+---------------------------------------------------+---------------------------------------------------+-------------------------------+-------------+--------------+------------+------------+
+; -2.540 ; gerador_pwm:xgerador_pwm|aux2                     ; gerador_pwm:xgerador_pwm|aux2                     ; gerador_pwm:xgerador_pwm|aux2 ; clock       ; 0.000        ; 2.681      ; 0.657      ;
+; -2.540 ; gerador_pwm:xgerador_pwm|aux1                     ; gerador_pwm:xgerador_pwm|aux1                     ; gerador_pwm:xgerador_pwm|aux1 ; clock       ; 0.000        ; 2.681      ; 0.657      ;
+; -2.040 ; gerador_pwm:xgerador_pwm|aux2                     ; gerador_pwm:xgerador_pwm|aux2                     ; gerador_pwm:xgerador_pwm|aux2 ; clock       ; -0.500       ; 2.681      ; 0.657      ;
+; -2.040 ; gerador_pwm:xgerador_pwm|aux1                     ; gerador_pwm:xgerador_pwm|aux1                     ; gerador_pwm:xgerador_pwm|aux1 ; clock       ; -0.500       ; 2.681      ; 0.657      ;
+; 0.391  ; gerador_pwm:xgerador_pwm|\pwm:contador[1]         ; gerador_pwm:xgerador_pwm|\pwm:contador[1]         ; clock                         ; clock       ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391  ; gerador_pwm:xgerador_pwm|\pwm:contador[3]         ; gerador_pwm:xgerador_pwm|\pwm:contador[3]         ; clock                         ; clock       ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391  ; gerador_pwm:xgerador_pwm|\pwm:contador[2]         ; gerador_pwm:xgerador_pwm|\pwm:contador[2]         ; clock                         ; clock       ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391  ; gerador_pwm:xgerador_pwm|\pwm:contador[0]         ; gerador_pwm:xgerador_pwm|\pwm:contador[0]         ; clock                         ; clock       ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391  ; gerador_clock:xgerador_clock|\clock1:contador1[0] ; gerador_clock:xgerador_clock|\clock1:contador1[0] ; clock                         ; clock       ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391  ; gerador_clock:xgerador_clock|\clock1:contador1[1] ; gerador_clock:xgerador_clock|\clock1:contador1[1] ; clock                         ; clock       ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391  ; gerador_clock:xgerador_clock|blink                ; gerador_clock:xgerador_clock|blink                ; clock                         ; clock       ; 0.000        ; 0.000      ; 0.657      ;
+; 0.522  ; gerador_clock:xgerador_clock|\clock1:contador1[0] ; gerador_clock:xgerador_clock|\clock1:contador1[1] ; clock                         ; clock       ; 0.000        ; 0.000      ; 0.788      ;
+; 0.525  ; gerador_clock:xgerador_clock|\clock1:contador1[0] ; gerador_clock:xgerador_clock|blink                ; clock                         ; clock       ; 0.000        ; 0.000      ; 0.791      ;
+; 0.546  ; gerador_pwm:xgerador_pwm|\pwm:contador[3]         ; gerador_pwm:xgerador_pwm|\pwm:contador[2]         ; clock                         ; clock       ; 0.000        ; 0.000      ; 0.812      ;
+; 0.692  ; gerador_pwm:xgerador_pwm|\pwm:contador[2]         ; gerador_pwm:xgerador_pwm|\pwm:contador[0]         ; clock                         ; clock       ; 0.000        ; 0.000      ; 0.958      ;
+; 0.693  ; gerador_pwm:xgerador_pwm|\pwm:contador[2]         ; gerador_pwm:xgerador_pwm|\pwm:contador[1]         ; clock                         ; clock       ; 0.000        ; 0.000      ; 0.959      ;
+; 0.693  ; gerador_pwm:xgerador_pwm|\pwm:contador[2]         ; gerador_pwm:xgerador_pwm|\pwm:contador[3]         ; clock                         ; clock       ; 0.000        ; 0.000      ; 0.959      ;
+; 0.792  ; gerador_clock:xgerador_clock|\clock1:contador1[1] ; gerador_clock:xgerador_clock|blink                ; clock                         ; clock       ; 0.000        ; 0.000      ; 1.058      ;
+; 0.834  ; gerador_pwm:xgerador_pwm|\pwm:contador[0]         ; gerador_pwm:xgerador_pwm|\pwm:contador[3]         ; clock                         ; clock       ; 0.000        ; 0.000      ; 1.100      ;
+; 0.839  ; gerador_pwm:xgerador_pwm|\pwm:contador[0]         ; gerador_pwm:xgerador_pwm|\pwm:contador[1]         ; clock                         ; clock       ; 0.000        ; 0.000      ; 1.105      ;
+; 0.842  ; gerador_pwm:xgerador_pwm|\pwm:contador[0]         ; gerador_pwm:xgerador_pwm|\pwm:contador[2]         ; clock                         ; clock       ; 0.000        ; 0.000      ; 1.108      ;
+; 0.852  ; gerador_pwm:xgerador_pwm|\pwm:contador[1]         ; gerador_pwm:xgerador_pwm|\pwm:contador[3]         ; clock                         ; clock       ; 0.000        ; 0.000      ; 1.118      ;
+; 0.856  ; gerador_pwm:xgerador_pwm|\pwm:contador[1]         ; gerador_pwm:xgerador_pwm|\pwm:contador[2]         ; clock                         ; clock       ; 0.000        ; 0.000      ; 1.122      ;
+; 0.990  ; gerador_pwm:xgerador_pwm|\pwm:contador[0]         ; gerador_pwm:xgerador_pwm|aux1                     ; clock                         ; clock       ; 0.000        ; 0.000      ; 1.256      ;
+; 0.992  ; gerador_pwm:xgerador_pwm|\pwm:contador[0]         ; gerador_pwm:xgerador_pwm|aux2                     ; clock                         ; clock       ; 0.000        ; 0.000      ; 1.258      ;
+; 1.019  ; gerador_pwm:xgerador_pwm|\pwm:contador[3]         ; gerador_pwm:xgerador_pwm|\pwm:contador[1]         ; clock                         ; clock       ; 0.000        ; 0.000      ; 1.285      ;
+; 1.019  ; gerador_pwm:xgerador_pwm|\pwm:contador[3]         ; gerador_pwm:xgerador_pwm|\pwm:contador[0]         ; clock                         ; clock       ; 0.000        ; 0.000      ; 1.285      ;
+; 1.101  ; gerador_pwm:xgerador_pwm|\pwm:contador[2]         ; gerador_pwm:xgerador_pwm|aux1                     ; clock                         ; clock       ; 0.000        ; 0.000      ; 1.367      ;
+; 1.103  ; gerador_pwm:xgerador_pwm|\pwm:contador[2]         ; gerador_pwm:xgerador_pwm|aux2                     ; clock                         ; clock       ; 0.000        ; 0.000      ; 1.369      ;
+; 1.198  ; gerador_pwm:xgerador_pwm|\pwm:contador[3]         ; gerador_pwm:xgerador_pwm|aux1                     ; clock                         ; clock       ; 0.000        ; 0.000      ; 1.464      ;
+; 1.215  ; gerador_pwm:xgerador_pwm|\pwm:contador[3]         ; gerador_pwm:xgerador_pwm|aux2                     ; clock                         ; clock       ; 0.000        ; 0.000      ; 1.481      ;
+; 1.279  ; gerador_pwm:xgerador_pwm|\pwm:contador[1]         ; gerador_pwm:xgerador_pwm|aux1                     ; clock                         ; clock       ; 0.000        ; 0.000      ; 1.545      ;
+; 1.281  ; gerador_pwm:xgerador_pwm|\pwm:contador[1]         ; gerador_pwm:xgerador_pwm|aux2                     ; clock                         ; clock       ; 0.000        ; 0.000      ; 1.547      ;
++--------+---------------------------------------------------+---------------------------------------------------+-------------------------------+-------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Hold: 'gerador_pwm:xgerador_pwm|aux1'                                                                                                                                                       ;
++-------+-------------------------------------------+-------------------------------------------+-------------------------------+-------------------------------+--------------+------------+------------+
+; Slack ; From Node                                 ; To Node                                   ; Launch Clock                  ; Latch Clock                   ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------------------------+-------------------------------------------+-------------------------------+-------------------------------+--------------+------------+------------+
+; 0.391 ; maquina_estado:xmaquina_estado|est_aux[2] ; maquina_estado:xmaquina_estado|est_aux[2] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; maquina_estado:xmaquina_estado|est_aux[3] ; maquina_estado:xmaquina_estado|est_aux[3] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; maquina_estado:xmaquina_estado|est_aux[1] ; maquina_estado:xmaquina_estado|est_aux[1] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; maquina_estado:xmaquina_estado|est_aux[0] ; maquina_estado:xmaquina_estado|est_aux[0] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 0.000        ; 0.000      ; 0.657      ;
+; 0.834 ; maquina_estado:xmaquina_estado|est_aux[0] ; maquina_estado:xmaquina_estado|est_aux[3] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 0.000        ; 0.000      ; 1.100      ;
+; 0.842 ; maquina_estado:xmaquina_estado|est_aux[1] ; maquina_estado:xmaquina_estado|est_aux[2] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 0.000        ; 0.000      ; 1.108      ;
+; 0.845 ; maquina_estado:xmaquina_estado|est_aux[2] ; maquina_estado:xmaquina_estado|est_aux[1] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 0.000        ; 0.000      ; 1.111      ;
+; 0.847 ; maquina_estado:xmaquina_estado|est_aux[3] ; maquina_estado:xmaquina_estado|tipo_aux   ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 0.000        ; 0.000      ; 1.113      ;
+; 0.970 ; maquina_estado:xmaquina_estado|est_aux[3] ; maquina_estado:xmaquina_estado|est_aux[1] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 0.000        ; 0.000      ; 1.236      ;
+; 0.974 ; maquina_estado:xmaquina_estado|est_aux[3] ; maquina_estado:xmaquina_estado|est_aux[2] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 0.000        ; 0.000      ; 1.240      ;
+; 0.986 ; maquina_estado:xmaquina_estado|est_aux[2] ; maquina_estado:xmaquina_estado|tipo_aux   ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 0.000        ; 0.000      ; 1.252      ;
+; 0.987 ; maquina_estado:xmaquina_estado|est_aux[2] ; maquina_estado:xmaquina_estado|est_aux[3] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 0.000        ; 0.000      ; 1.253      ;
+; 0.989 ; maquina_estado:xmaquina_estado|est_aux[0] ; maquina_estado:xmaquina_estado|est_aux[1] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 0.000        ; 0.000      ; 1.255      ;
+; 0.991 ; maquina_estado:xmaquina_estado|est_aux[0] ; maquina_estado:xmaquina_estado|est_aux[2] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 0.000        ; 0.000      ; 1.257      ;
+; 1.085 ; maquina_estado:xmaquina_estado|est_aux[1] ; maquina_estado:xmaquina_estado|tipo_aux   ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 0.000        ; 0.000      ; 1.351      ;
+; 1.140 ; maquina_estado:xmaquina_estado|est_aux[1] ; maquina_estado:xmaquina_estado|est_aux[0] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 0.000        ; 0.000      ; 1.406      ;
+; 1.214 ; maquina_estado:xmaquina_estado|est_aux[0] ; maquina_estado:xmaquina_estado|tipo_aux   ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 0.000        ; 0.000      ; 1.480      ;
+; 1.228 ; maquina_estado:xmaquina_estado|est_aux[1] ; maquina_estado:xmaquina_estado|est_aux[3] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 0.000        ; 0.000      ; 1.494      ;
+; 1.249 ; maquina_estado:xmaquina_estado|est_aux[3] ; maquina_estado:xmaquina_estado|est_aux[0] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 0.000        ; 0.000      ; 1.515      ;
+; 1.390 ; maquina_estado:xmaquina_estado|est_aux[2] ; maquina_estado:xmaquina_estado|est_aux[0] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 0.000        ; 0.000      ; 1.656      ;
++-------+-------------------------------------------+-------------------------------------------+-------------------------------+-------------------------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Hold: 'gerador_pwm:xgerador_pwm|aux2'                                                                                                                                                ;
++-------+-------------------------------------------+------------------------------------+-------------------------------+-------------------------------+--------------+------------+------------+
+; Slack ; From Node                                 ; To Node                            ; Launch Clock                  ; Latch Clock                   ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------------------------+------------------------------------+-------------------------------+-------------------------------+--------------+------------+------------+
+; 0.523 ; cont_display:xcont_display|tipo1          ; cont_display:xcont_display|tipo0   ; gerador_pwm:xgerador_pwm|aux2 ; gerador_pwm:xgerador_pwm|aux2 ; 0.000        ; 0.000      ; 0.789      ;
+; 0.535 ; cont_display:xcont_display|tipo2          ; cont_display:xcont_display|tipo1   ; gerador_pwm:xgerador_pwm|aux2 ; gerador_pwm:xgerador_pwm|aux2 ; 0.000        ; 0.000      ; 0.801      ;
+; 0.687 ; cont_display:xcont_display|aux2[0]        ; cont_display:xcont_display|aux1[0] ; gerador_pwm:xgerador_pwm|aux2 ; gerador_pwm:xgerador_pwm|aux2 ; 0.000        ; 0.000      ; 0.953      ;
+; 0.687 ; cont_display:xcont_display|aux1[0]        ; cont_display:xcont_display|aux0[0] ; gerador_pwm:xgerador_pwm|aux2 ; gerador_pwm:xgerador_pwm|aux2 ; 0.000        ; 0.000      ; 0.953      ;
+; 0.691 ; cont_display:xcont_display|aux2[3]        ; cont_display:xcont_display|aux1[3] ; gerador_pwm:xgerador_pwm|aux2 ; gerador_pwm:xgerador_pwm|aux2 ; 0.000        ; 0.000      ; 0.957      ;
+; 0.700 ; maquina_estado:xmaquina_estado|est_aux[0] ; cont_display:xcont_display|aux2[0] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux2 ; 0.000        ; 0.001      ; 0.967      ;
+; 0.705 ; cont_display:xcont_display|aux1[3]        ; cont_display:xcont_display|aux0[3] ; gerador_pwm:xgerador_pwm|aux2 ; gerador_pwm:xgerador_pwm|aux2 ; 0.000        ; 0.000      ; 0.971      ;
+; 0.706 ; cont_display:xcont_display|aux2[1]        ; cont_display:xcont_display|aux1[1] ; gerador_pwm:xgerador_pwm|aux2 ; gerador_pwm:xgerador_pwm|aux2 ; 0.000        ; 0.000      ; 0.972      ;
+; 0.707 ; cont_display:xcont_display|aux1[1]        ; cont_display:xcont_display|aux0[1] ; gerador_pwm:xgerador_pwm|aux2 ; gerador_pwm:xgerador_pwm|aux2 ; 0.000        ; 0.000      ; 0.973      ;
+; 0.722 ; cont_display:xcont_display|aux1[2]        ; cont_display:xcont_display|aux0[2] ; gerador_pwm:xgerador_pwm|aux2 ; gerador_pwm:xgerador_pwm|aux2 ; 0.000        ; 0.000      ; 0.988      ;
+; 0.838 ; maquina_estado:xmaquina_estado|est_aux[1] ; cont_display:xcont_display|aux2[1] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux2 ; 0.000        ; 0.002      ; 1.106      ;
+; 0.842 ; cont_display:xcont_display|aux2[2]        ; cont_display:xcont_display|aux1[2] ; gerador_pwm:xgerador_pwm|aux2 ; gerador_pwm:xgerador_pwm|aux2 ; 0.000        ; 0.001      ; 1.109      ;
+; 0.844 ; maquina_estado:xmaquina_estado|est_aux[2] ; cont_display:xcont_display|aux2[2] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux2 ; 0.000        ; 0.001      ; 1.111      ;
+; 0.856 ; maquina_estado:xmaquina_estado|est_aux[3] ; cont_display:xcont_display|aux2[3] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux2 ; 0.000        ; 0.002      ; 1.124      ;
+; 0.878 ; maquina_estado:xmaquina_estado|tipo_aux   ; cont_display:xcont_display|tipo2   ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux2 ; 0.000        ; -0.001     ; 1.143      ;
++-------+-------------------------------------------+------------------------------------+-------------------------------+-------------------------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Minimum Pulse Width: 'clock'                                                                                            ;
++--------+--------------+----------------+------------------+-------+------------+---------------------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target                                            ;
++--------+--------------+----------------+------------------+-------+------------+---------------------------------------------------+
+; -1.380 ; 1.000        ; 2.380          ; Port Rate        ; clock ; Rise       ; clock                                             ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock ; Fall       ; gerador_clock:xgerador_clock|\clock1:contador1[0] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock ; Fall       ; gerador_clock:xgerador_clock|\clock1:contador1[0] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock ; Fall       ; gerador_clock:xgerador_clock|\clock1:contador1[1] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock ; Fall       ; gerador_clock:xgerador_clock|\clock1:contador1[1] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock ; Fall       ; gerador_clock:xgerador_clock|blink                ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock ; Fall       ; gerador_clock:xgerador_clock|blink                ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock ; Fall       ; gerador_pwm:xgerador_pwm|\pwm:contador[0]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock ; Fall       ; gerador_pwm:xgerador_pwm|\pwm:contador[0]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock ; Fall       ; gerador_pwm:xgerador_pwm|\pwm:contador[1]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock ; Fall       ; gerador_pwm:xgerador_pwm|\pwm:contador[1]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock ; Fall       ; gerador_pwm:xgerador_pwm|\pwm:contador[2]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock ; Fall       ; gerador_pwm:xgerador_pwm|\pwm:contador[2]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock ; Fall       ; gerador_pwm:xgerador_pwm|\pwm:contador[3]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock ; Fall       ; gerador_pwm:xgerador_pwm|\pwm:contador[3]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock ; Fall       ; gerador_pwm:xgerador_pwm|aux1                     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock ; Fall       ; gerador_pwm:xgerador_pwm|aux1                     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock ; Fall       ; gerador_pwm:xgerador_pwm|aux2                     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock ; Fall       ; gerador_pwm:xgerador_pwm|aux2                     ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock ; Rise       ; clock|combout                                     ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock ; Rise       ; clock|combout                                     ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock ; Rise       ; clock~clkctrl|inclk[0]                            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock ; Rise       ; clock~clkctrl|inclk[0]                            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock ; Rise       ; clock~clkctrl|outclk                              ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock ; Rise       ; clock~clkctrl|outclk                              ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock ; Rise       ; xgerador_clock|\clock1:contador1[0]|clk           ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock ; Rise       ; xgerador_clock|\clock1:contador1[0]|clk           ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock ; Rise       ; xgerador_clock|\clock1:contador1[1]|clk           ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock ; Rise       ; xgerador_clock|\clock1:contador1[1]|clk           ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock ; Rise       ; xgerador_clock|blink|clk                          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock ; Rise       ; xgerador_clock|blink|clk                          ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock ; Rise       ; xgerador_pwm|\pwm:contador[0]|clk                 ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock ; Rise       ; xgerador_pwm|\pwm:contador[0]|clk                 ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock ; Rise       ; xgerador_pwm|\pwm:contador[1]|clk                 ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock ; Rise       ; xgerador_pwm|\pwm:contador[1]|clk                 ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock ; Rise       ; xgerador_pwm|\pwm:contador[2]|clk                 ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock ; Rise       ; xgerador_pwm|\pwm:contador[2]|clk                 ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock ; Rise       ; xgerador_pwm|\pwm:contador[3]|clk                 ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock ; Rise       ; xgerador_pwm|\pwm:contador[3]|clk                 ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock ; Rise       ; xgerador_pwm|aux1|clk                             ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock ; Rise       ; xgerador_pwm|aux1|clk                             ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock ; Rise       ; xgerador_pwm|aux2|clk                             ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock ; Rise       ; xgerador_pwm|aux2|clk                             ;
++--------+--------------+----------------+------------------+-------+------------+---------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Minimum Pulse Width: 'gerador_pwm:xgerador_pwm|aux2'                                                                             ;
++--------+--------------+----------------+------------------+-------------------------------+------------+------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock                         ; Clock Edge ; Target                             ;
++--------+--------------+----------------+------------------+-------------------------------+------------+------------------------------------+
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux0[0] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux0[0] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux0[1] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux0[1] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux0[2] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux0[2] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux0[3] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux0[3] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux1[0] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux1[0] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux1[1] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux1[1] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux1[2] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux1[2] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux1[3] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux1[3] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux2[0] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux2[0] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux2[1] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux2[1] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux2[2] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux2[2] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux2[3] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux2[3] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|tipo0   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|tipo0   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|tipo1   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|tipo1   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|tipo2   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|tipo2   ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux0[0]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux0[0]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux0[1]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux0[1]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux0[2]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux0[2]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux0[3]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux0[3]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux1[0]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux1[0]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux1[1]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux1[1]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux1[2]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux1[2]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux1[3]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux1[3]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux2[0]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux2[0]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux2[1]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux2[1]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux2[2]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux2[2]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux2[3]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux2[3]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|tipo0|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|tipo0|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|tipo1|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|tipo1|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|tipo2|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|tipo2|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xgerador_pwm|aux2|regout           ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xgerador_pwm|aux2|regout           ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xgerador_pwm|aux2~clkctrl|inclk[0] ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xgerador_pwm|aux2~clkctrl|inclk[0] ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xgerador_pwm|aux2~clkctrl|outclk   ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xgerador_pwm|aux2~clkctrl|outclk   ;
++--------+--------------+----------------+------------------+-------------------------------+------------+------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Minimum Pulse Width: 'gerador_pwm:xgerador_pwm|aux1'                                                                                    ;
++--------+--------------+----------------+------------------+-------------------------------+------------+-------------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock                         ; Clock Edge ; Target                                    ;
++--------+--------------+----------------+------------------+-------------------------------+------------+-------------------------------------------+
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; maquina_estado:xmaquina_estado|est_aux[0] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; maquina_estado:xmaquina_estado|est_aux[0] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; maquina_estado:xmaquina_estado|est_aux[1] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; maquina_estado:xmaquina_estado|est_aux[1] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; maquina_estado:xmaquina_estado|est_aux[2] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; maquina_estado:xmaquina_estado|est_aux[2] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; maquina_estado:xmaquina_estado|est_aux[3] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; maquina_estado:xmaquina_estado|est_aux[3] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; maquina_estado:xmaquina_estado|tipo_aux   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; maquina_estado:xmaquina_estado|tipo_aux   ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; xgerador_pwm|aux1|regout                  ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; xgerador_pwm|aux1|regout                  ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; xgerador_pwm|aux1~clkctrl|inclk[0]        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; xgerador_pwm|aux1~clkctrl|inclk[0]        ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; xgerador_pwm|aux1~clkctrl|outclk          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; xgerador_pwm|aux1~clkctrl|outclk          ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; xmaquina_estado|est_aux[0]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; xmaquina_estado|est_aux[0]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; xmaquina_estado|est_aux[1]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; xmaquina_estado|est_aux[1]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; xmaquina_estado|est_aux[2]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; xmaquina_estado|est_aux[2]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; xmaquina_estado|est_aux[3]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; xmaquina_estado|est_aux[3]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; xmaquina_estado|tipo_aux|clk              ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; xmaquina_estado|tipo_aux|clk              ;
++--------+--------------+----------------+------------------+-------------------------------+------------+-------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Setup Times                                                                                            ;
++-----------+-------------------------------+-------+-------+------------+-------------------------------+
+; Data Port ; Clock Port                    ; Rise  ; Fall  ; Clock Edge ; Clock Reference               ;
++-----------+-------------------------------+-------+-------+------------+-------------------------------+
+; controle  ; gerador_pwm:xgerador_pwm|aux1 ; 0.798 ; 0.798 ; Rise       ; gerador_pwm:xgerador_pwm|aux1 ;
++-----------+-------------------------------+-------+-------+------------+-------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Hold Times                                                                                             ;
++-----------+-------------------------------+-------+-------+------------+-------------------------------+
+; Data Port ; Clock Port                    ; Rise  ; Fall  ; Clock Edge ; Clock Reference               ;
++-----------+-------------------------------+-------+-------+------------+-------------------------------+
+; controle  ; gerador_pwm:xgerador_pwm|aux1 ; 0.114 ; 0.114 ; Rise       ; gerador_pwm:xgerador_pwm|aux1 ;
++-----------+-------------------------------+-------+-------+------------+-------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Clock to Output Times                                                                                  ;
++-----------+-------------------------------+-------+-------+------------+-------------------------------+
+; Data Port ; Clock Port                    ; Rise  ; Fall  ; Clock Edge ; Clock Reference               ;
++-----------+-------------------------------+-------+-------+------------+-------------------------------+
+; disp0[*]  ; clock                         ; 7.766 ; 7.766 ; Fall       ; clock                         ;
+;  disp0[0] ; clock                         ; 7.766 ; 7.766 ; Fall       ; clock                         ;
+;  disp0[1] ; clock                         ; 6.994 ; 6.994 ; Fall       ; clock                         ;
+;  disp0[2] ; clock                         ; 6.778 ; 6.778 ; Fall       ; clock                         ;
+;  disp0[3] ; clock                         ; 6.783 ; 6.783 ; Fall       ; clock                         ;
+;  disp0[4] ; clock                         ; 6.782 ; 6.782 ; Fall       ; clock                         ;
+;  disp0[5] ; clock                         ; 7.009 ; 7.009 ; Fall       ; clock                         ;
+;  disp0[6] ; clock                         ; 6.784 ; 6.784 ; Fall       ; clock                         ;
+; disp1[*]  ; clock                         ; 7.722 ; 7.722 ; Fall       ; clock                         ;
+;  disp1[0] ; clock                         ; 7.570 ; 7.570 ; Fall       ; clock                         ;
+;  disp1[1] ; clock                         ; 7.222 ; 7.222 ; Fall       ; clock                         ;
+;  disp1[2] ; clock                         ; 7.474 ; 7.474 ; Fall       ; clock                         ;
+;  disp1[3] ; clock                         ; 7.486 ; 7.486 ; Fall       ; clock                         ;
+;  disp1[4] ; clock                         ; 7.525 ; 7.525 ; Fall       ; clock                         ;
+;  disp1[5] ; clock                         ; 7.722 ; 7.722 ; Fall       ; clock                         ;
+;  disp1[6] ; clock                         ; 7.246 ; 7.246 ; Fall       ; clock                         ;
+; disp2[*]  ; clock                         ; 7.768 ; 7.768 ; Fall       ; clock                         ;
+;  disp2[0] ; clock                         ; 7.743 ; 7.743 ; Fall       ; clock                         ;
+;  disp2[1] ; clock                         ; 7.247 ; 7.247 ; Fall       ; clock                         ;
+;  disp2[2] ; clock                         ; 7.478 ; 7.478 ; Fall       ; clock                         ;
+;  disp2[3] ; clock                         ; 7.252 ; 7.252 ; Fall       ; clock                         ;
+;  disp2[4] ; clock                         ; 7.768 ; 7.768 ; Fall       ; clock                         ;
+;  disp2[5] ; clock                         ; 7.233 ; 7.233 ; Fall       ; clock                         ;
+;  disp2[6] ; clock                         ; 7.703 ; 7.703 ; Fall       ; clock                         ;
+; disp0[*]  ; gerador_pwm:xgerador_pwm|aux2 ; 8.197 ; 8.197 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp0[0] ; gerador_pwm:xgerador_pwm|aux2 ; 8.197 ; 8.197 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp0[1] ; gerador_pwm:xgerador_pwm|aux2 ; 8.053 ; 8.053 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp0[2] ; gerador_pwm:xgerador_pwm|aux2 ; 7.826 ; 7.826 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp0[3] ; gerador_pwm:xgerador_pwm|aux2 ; 7.831 ; 7.831 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp0[4] ; gerador_pwm:xgerador_pwm|aux2 ; 7.852 ; 7.852 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp0[5] ; gerador_pwm:xgerador_pwm|aux2 ; 8.031 ; 8.031 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp0[6] ; gerador_pwm:xgerador_pwm|aux2 ; 7.807 ; 7.807 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+; disp1[*]  ; gerador_pwm:xgerador_pwm|aux2 ; 8.755 ; 8.755 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp1[0] ; gerador_pwm:xgerador_pwm|aux2 ; 8.488 ; 8.488 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp1[1] ; gerador_pwm:xgerador_pwm|aux2 ; 8.334 ; 8.334 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp1[2] ; gerador_pwm:xgerador_pwm|aux2 ; 8.614 ; 8.614 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp1[3] ; gerador_pwm:xgerador_pwm|aux2 ; 8.531 ; 8.531 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp1[4] ; gerador_pwm:xgerador_pwm|aux2 ; 7.860 ; 7.860 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp1[5] ; gerador_pwm:xgerador_pwm|aux2 ; 8.755 ; 8.755 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp1[6] ; gerador_pwm:xgerador_pwm|aux2 ; 7.894 ; 7.894 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+; disp2[*]  ; gerador_pwm:xgerador_pwm|aux2 ; 9.126 ; 9.126 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp2[0] ; gerador_pwm:xgerador_pwm|aux2 ; 8.987 ; 8.987 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp2[1] ; gerador_pwm:xgerador_pwm|aux2 ; 8.511 ; 8.511 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp2[2] ; gerador_pwm:xgerador_pwm|aux2 ; 9.126 ; 9.126 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp2[3] ; gerador_pwm:xgerador_pwm|aux2 ; 8.434 ; 8.434 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp2[4] ; gerador_pwm:xgerador_pwm|aux2 ; 8.740 ; 8.740 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp2[5] ; gerador_pwm:xgerador_pwm|aux2 ; 7.992 ; 7.992 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp2[6] ; gerador_pwm:xgerador_pwm|aux2 ; 8.488 ; 8.488 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
++-----------+-------------------------------+-------+-------+------------+-------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                                          ;
++-----------+-------------------------------+-------+-------+------------+-------------------------------+
+; Data Port ; Clock Port                    ; Rise  ; Fall  ; Clock Edge ; Clock Reference               ;
++-----------+-------------------------------+-------+-------+------------+-------------------------------+
+; disp0[*]  ; clock                         ; 6.778 ; 6.778 ; Fall       ; clock                         ;
+;  disp0[0] ; clock                         ; 7.766 ; 7.766 ; Fall       ; clock                         ;
+;  disp0[1] ; clock                         ; 6.994 ; 6.994 ; Fall       ; clock                         ;
+;  disp0[2] ; clock                         ; 6.778 ; 6.778 ; Fall       ; clock                         ;
+;  disp0[3] ; clock                         ; 6.783 ; 6.783 ; Fall       ; clock                         ;
+;  disp0[4] ; clock                         ; 6.782 ; 6.782 ; Fall       ; clock                         ;
+;  disp0[5] ; clock                         ; 7.009 ; 7.009 ; Fall       ; clock                         ;
+;  disp0[6] ; clock                         ; 6.784 ; 6.784 ; Fall       ; clock                         ;
+; disp1[*]  ; clock                         ; 7.222 ; 7.222 ; Fall       ; clock                         ;
+;  disp1[0] ; clock                         ; 7.570 ; 7.570 ; Fall       ; clock                         ;
+;  disp1[1] ; clock                         ; 7.222 ; 7.222 ; Fall       ; clock                         ;
+;  disp1[2] ; clock                         ; 7.474 ; 7.474 ; Fall       ; clock                         ;
+;  disp1[3] ; clock                         ; 7.486 ; 7.486 ; Fall       ; clock                         ;
+;  disp1[4] ; clock                         ; 7.525 ; 7.525 ; Fall       ; clock                         ;
+;  disp1[5] ; clock                         ; 7.722 ; 7.722 ; Fall       ; clock                         ;
+;  disp1[6] ; clock                         ; 7.246 ; 7.246 ; Fall       ; clock                         ;
+; disp2[*]  ; clock                         ; 7.233 ; 7.233 ; Fall       ; clock                         ;
+;  disp2[0] ; clock                         ; 7.743 ; 7.743 ; Fall       ; clock                         ;
+;  disp2[1] ; clock                         ; 7.247 ; 7.247 ; Fall       ; clock                         ;
+;  disp2[2] ; clock                         ; 7.478 ; 7.478 ; Fall       ; clock                         ;
+;  disp2[3] ; clock                         ; 7.252 ; 7.252 ; Fall       ; clock                         ;
+;  disp2[4] ; clock                         ; 7.768 ; 7.768 ; Fall       ; clock                         ;
+;  disp2[5] ; clock                         ; 7.233 ; 7.233 ; Fall       ; clock                         ;
+;  disp2[6] ; clock                         ; 7.703 ; 7.703 ; Fall       ; clock                         ;
+; disp0[*]  ; gerador_pwm:xgerador_pwm|aux2 ; 6.740 ; 6.740 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp0[0] ; gerador_pwm:xgerador_pwm|aux2 ; 6.740 ; 6.740 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp0[1] ; gerador_pwm:xgerador_pwm|aux2 ; 7.149 ; 7.149 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp0[2] ; gerador_pwm:xgerador_pwm|aux2 ; 6.948 ; 6.948 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp0[3] ; gerador_pwm:xgerador_pwm|aux2 ; 6.945 ; 6.945 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp0[4] ; gerador_pwm:xgerador_pwm|aux2 ; 6.950 ; 6.950 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp0[5] ; gerador_pwm:xgerador_pwm|aux2 ; 7.166 ; 7.166 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp0[6] ; gerador_pwm:xgerador_pwm|aux2 ; 6.950 ; 6.950 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+; disp1[*]  ; gerador_pwm:xgerador_pwm|aux2 ; 6.833 ; 6.833 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp1[0] ; gerador_pwm:xgerador_pwm|aux2 ; 6.876 ; 6.876 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp1[1] ; gerador_pwm:xgerador_pwm|aux2 ; 7.141 ; 7.141 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp1[2] ; gerador_pwm:xgerador_pwm|aux2 ; 7.158 ; 7.158 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp1[3] ; gerador_pwm:xgerador_pwm|aux2 ; 7.168 ; 7.168 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp1[4] ; gerador_pwm:xgerador_pwm|aux2 ; 6.833 ; 6.833 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp1[5] ; gerador_pwm:xgerador_pwm|aux2 ; 7.402 ; 7.402 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp1[6] ; gerador_pwm:xgerador_pwm|aux2 ; 7.166 ; 7.166 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+; disp2[*]  ; gerador_pwm:xgerador_pwm|aux2 ; 6.729 ; 6.729 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp2[0] ; gerador_pwm:xgerador_pwm|aux2 ; 7.239 ; 7.239 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp2[1] ; gerador_pwm:xgerador_pwm|aux2 ; 6.744 ; 6.744 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp2[2] ; gerador_pwm:xgerador_pwm|aux2 ; 6.974 ; 6.974 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp2[3] ; gerador_pwm:xgerador_pwm|aux2 ; 6.748 ; 6.748 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp2[4] ; gerador_pwm:xgerador_pwm|aux2 ; 7.028 ; 7.028 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp2[5] ; gerador_pwm:xgerador_pwm|aux2 ; 6.729 ; 6.729 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp2[6] ; gerador_pwm:xgerador_pwm|aux2 ; 7.390 ; 7.390 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
++-----------+-------------------------------+-------+-------+------------+-------------------------------+
+
+
++-------------------------------------------------------+
+; Fast Model Setup Summary                              ;
++-------------------------------+-------+---------------+
+; Clock                         ; Slack ; End Point TNS ;
++-------------------------------+-------+---------------+
+; gerador_pwm:xgerador_pwm|aux1 ; 0.192 ; 0.000         ;
+; clock                         ; 0.198 ; 0.000         ;
+; gerador_pwm:xgerador_pwm|aux2 ; 0.449 ; 0.000         ;
++-------------------------------+-------+---------------+
+
+
++--------------------------------------------------------+
+; Fast Model Hold Summary                                ;
++-------------------------------+--------+---------------+
+; Clock                         ; Slack  ; End Point TNS ;
++-------------------------------+--------+---------------+
+; clock                         ; -1.584 ; -3.168        ;
+; gerador_pwm:xgerador_pwm|aux1 ; 0.215  ; 0.000         ;
+; gerador_pwm:xgerador_pwm|aux2 ; 0.240  ; 0.000         ;
++-------------------------------+--------+---------------+
+
+
+-------------------------------
+; Fast Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Fast Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++--------------------------------------------------------+
+; Fast Model Minimum Pulse Width Summary                 ;
++-------------------------------+--------+---------------+
+; Clock                         ; Slack  ; End Point TNS ;
++-------------------------------+--------+---------------+
+; clock                         ; -1.380 ; -10.380       ;
+; gerador_pwm:xgerador_pwm|aux2 ; -0.500 ; -15.000       ;
+; gerador_pwm:xgerador_pwm|aux1 ; -0.500 ; -5.000        ;
++-------------------------------+--------+---------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Setup: 'gerador_pwm:xgerador_pwm|aux1'                                                                                                                                                      ;
++-------+-------------------------------------------+-------------------------------------------+-------------------------------+-------------------------------+--------------+------------+------------+
+; Slack ; From Node                                 ; To Node                                   ; Launch Clock                  ; Latch Clock                   ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------------------------+-------------------------------------------+-------------------------------+-------------------------------+--------------+------------+------------+
+; 0.192 ; maquina_estado:xmaquina_estado|est_aux[1] ; maquina_estado:xmaquina_estado|est_aux[0] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 1.000        ; 0.000      ; 0.840      ;
+; 0.206 ; maquina_estado:xmaquina_estado|est_aux[2] ; maquina_estado:xmaquina_estado|est_aux[0] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 1.000        ; 0.000      ; 0.826      ;
+; 0.244 ; maquina_estado:xmaquina_estado|est_aux[3] ; maquina_estado:xmaquina_estado|est_aux[0] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 1.000        ; 0.000      ; 0.788      ;
+; 0.288 ; maquina_estado:xmaquina_estado|est_aux[2] ; maquina_estado:xmaquina_estado|tipo_aux   ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 1.000        ; 0.000      ; 0.744      ;
+; 0.305 ; maquina_estado:xmaquina_estado|est_aux[1] ; maquina_estado:xmaquina_estado|tipo_aux   ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 1.000        ; 0.000      ; 0.727      ;
+; 0.318 ; maquina_estado:xmaquina_estado|est_aux[0] ; maquina_estado:xmaquina_estado|tipo_aux   ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 1.000        ; 0.000      ; 0.714      ;
+; 0.320 ; maquina_estado:xmaquina_estado|est_aux[1] ; maquina_estado:xmaquina_estado|est_aux[3] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 1.000        ; 0.000      ; 0.712      ;
+; 0.324 ; maquina_estado:xmaquina_estado|est_aux[1] ; maquina_estado:xmaquina_estado|est_aux[2] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 1.000        ; 0.000      ; 0.708      ;
+; 0.393 ; maquina_estado:xmaquina_estado|est_aux[0] ; maquina_estado:xmaquina_estado|est_aux[1] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 1.000        ; 0.000      ; 0.639      ;
+; 0.432 ; maquina_estado:xmaquina_estado|est_aux[0] ; maquina_estado:xmaquina_estado|est_aux[2] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 1.000        ; 0.000      ; 0.600      ;
+; 0.436 ; maquina_estado:xmaquina_estado|est_aux[2] ; maquina_estado:xmaquina_estado|est_aux[3] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 1.000        ; 0.000      ; 0.596      ;
+; 0.443 ; maquina_estado:xmaquina_estado|est_aux[3] ; maquina_estado:xmaquina_estado|est_aux[2] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 1.000        ; 0.000      ; 0.589      ;
+; 0.445 ; maquina_estado:xmaquina_estado|est_aux[3] ; maquina_estado:xmaquina_estado|est_aux[1] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 1.000        ; 0.000      ; 0.587      ;
+; 0.486 ; maquina_estado:xmaquina_estado|est_aux[3] ; maquina_estado:xmaquina_estado|tipo_aux   ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 1.000        ; 0.000      ; 0.546      ;
+; 0.490 ; maquina_estado:xmaquina_estado|est_aux[2] ; maquina_estado:xmaquina_estado|est_aux[1] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 1.000        ; 0.000      ; 0.542      ;
+; 0.499 ; maquina_estado:xmaquina_estado|est_aux[0] ; maquina_estado:xmaquina_estado|est_aux[3] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 1.000        ; 0.000      ; 0.533      ;
+; 0.665 ; maquina_estado:xmaquina_estado|est_aux[0] ; maquina_estado:xmaquina_estado|est_aux[0] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 1.000        ; 0.000      ; 0.367      ;
+; 0.665 ; maquina_estado:xmaquina_estado|est_aux[3] ; maquina_estado:xmaquina_estado|est_aux[3] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 1.000        ; 0.000      ; 0.367      ;
+; 0.665 ; maquina_estado:xmaquina_estado|est_aux[2] ; maquina_estado:xmaquina_estado|est_aux[2] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 1.000        ; 0.000      ; 0.367      ;
+; 0.665 ; maquina_estado:xmaquina_estado|est_aux[1] ; maquina_estado:xmaquina_estado|est_aux[1] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 1.000        ; 0.000      ; 0.367      ;
++-------+-------------------------------------------+-------------------------------------------+-------------------------------+-------------------------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Setup: 'clock'                                                                                                                                                                            ;
++-------+---------------------------------------------------+---------------------------------------------------+-------------------------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                         ; To Node                                           ; Launch Clock                  ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+---------------------------------------------------+---------------------------------------------------+-------------------------------+-------------+--------------+------------+------------+
+; 0.198 ; gerador_pwm:xgerador_pwm|\pwm:contador[1]         ; gerador_pwm:xgerador_pwm|aux2                     ; clock                         ; clock       ; 1.000        ; 0.000      ; 0.834      ;
+; 0.200 ; gerador_pwm:xgerador_pwm|\pwm:contador[0]         ; gerador_pwm:xgerador_pwm|aux2                     ; clock                         ; clock       ; 1.000        ; 0.000      ; 0.832      ;
+; 0.205 ; gerador_pwm:xgerador_pwm|\pwm:contador[1]         ; gerador_pwm:xgerador_pwm|aux1                     ; clock                         ; clock       ; 1.000        ; 0.000      ; 0.827      ;
+; 0.206 ; gerador_pwm:xgerador_pwm|\pwm:contador[0]         ; gerador_pwm:xgerador_pwm|aux1                     ; clock                         ; clock       ; 1.000        ; 0.000      ; 0.826      ;
+; 0.281 ; gerador_pwm:xgerador_pwm|\pwm:contador[2]         ; gerador_pwm:xgerador_pwm|aux2                     ; clock                         ; clock       ; 1.000        ; 0.000      ; 0.751      ;
+; 0.290 ; gerador_pwm:xgerador_pwm|\pwm:contador[2]         ; gerador_pwm:xgerador_pwm|aux1                     ; clock                         ; clock       ; 1.000        ; 0.000      ; 0.742      ;
+; 0.328 ; gerador_pwm:xgerador_pwm|\pwm:contador[3]         ; gerador_pwm:xgerador_pwm|aux2                     ; clock                         ; clock       ; 1.000        ; 0.000      ; 0.704      ;
+; 0.329 ; gerador_pwm:xgerador_pwm|\pwm:contador[3]         ; gerador_pwm:xgerador_pwm|aux1                     ; clock                         ; clock       ; 1.000        ; 0.000      ; 0.703      ;
+; 0.426 ; gerador_pwm:xgerador_pwm|\pwm:contador[3]         ; gerador_pwm:xgerador_pwm|\pwm:contador[0]         ; clock                         ; clock       ; 1.000        ; 0.000      ; 0.606      ;
+; 0.427 ; gerador_pwm:xgerador_pwm|\pwm:contador[3]         ; gerador_pwm:xgerador_pwm|\pwm:contador[1]         ; clock                         ; clock       ; 1.000        ; 0.000      ; 0.605      ;
+; 0.488 ; gerador_pwm:xgerador_pwm|\pwm:contador[1]         ; gerador_pwm:xgerador_pwm|\pwm:contador[2]         ; clock                         ; clock       ; 1.000        ; 0.000      ; 0.544      ;
+; 0.491 ; gerador_pwm:xgerador_pwm|\pwm:contador[0]         ; gerador_pwm:xgerador_pwm|\pwm:contador[2]         ; clock                         ; clock       ; 1.000        ; 0.000      ; 0.541      ;
+; 0.492 ; gerador_pwm:xgerador_pwm|\pwm:contador[1]         ; gerador_pwm:xgerador_pwm|\pwm:contador[3]         ; clock                         ; clock       ; 1.000        ; 0.000      ; 0.540      ;
+; 0.493 ; gerador_pwm:xgerador_pwm|\pwm:contador[0]         ; gerador_pwm:xgerador_pwm|\pwm:contador[3]         ; clock                         ; clock       ; 1.000        ; 0.000      ; 0.539      ;
+; 0.498 ; gerador_pwm:xgerador_pwm|\pwm:contador[0]         ; gerador_pwm:xgerador_pwm|\pwm:contador[1]         ; clock                         ; clock       ; 1.000        ; 0.000      ; 0.534      ;
+; 0.524 ; gerador_clock:xgerador_clock|\clock1:contador1[1] ; gerador_clock:xgerador_clock|blink                ; clock                         ; clock       ; 1.000        ; 0.000      ; 0.508      ;
+; 0.554 ; gerador_pwm:xgerador_pwm|\pwm:contador[2]         ; gerador_pwm:xgerador_pwm|\pwm:contador[1]         ; clock                         ; clock       ; 1.000        ; 0.000      ; 0.478      ;
+; 0.554 ; gerador_pwm:xgerador_pwm|\pwm:contador[2]         ; gerador_pwm:xgerador_pwm|\pwm:contador[3]         ; clock                         ; clock       ; 1.000        ; 0.000      ; 0.478      ;
+; 0.555 ; gerador_pwm:xgerador_pwm|\pwm:contador[2]         ; gerador_pwm:xgerador_pwm|\pwm:contador[0]         ; clock                         ; clock       ; 1.000        ; 0.000      ; 0.477      ;
+; 0.627 ; gerador_pwm:xgerador_pwm|\pwm:contador[3]         ; gerador_pwm:xgerador_pwm|\pwm:contador[2]         ; clock                         ; clock       ; 1.000        ; 0.000      ; 0.405      ;
+; 0.637 ; gerador_clock:xgerador_clock|\clock1:contador1[0] ; gerador_clock:xgerador_clock|blink                ; clock                         ; clock       ; 1.000        ; 0.000      ; 0.395      ;
+; 0.640 ; gerador_clock:xgerador_clock|\clock1:contador1[0] ; gerador_clock:xgerador_clock|\clock1:contador1[1] ; clock                         ; clock       ; 1.000        ; 0.000      ; 0.392      ;
+; 0.665 ; gerador_clock:xgerador_clock|\clock1:contador1[0] ; gerador_clock:xgerador_clock|\clock1:contador1[0] ; clock                         ; clock       ; 1.000        ; 0.000      ; 0.367      ;
+; 0.665 ; gerador_pwm:xgerador_pwm|\pwm:contador[0]         ; gerador_pwm:xgerador_pwm|\pwm:contador[0]         ; clock                         ; clock       ; 1.000        ; 0.000      ; 0.367      ;
+; 0.665 ; gerador_pwm:xgerador_pwm|\pwm:contador[1]         ; gerador_pwm:xgerador_pwm|\pwm:contador[1]         ; clock                         ; clock       ; 1.000        ; 0.000      ; 0.367      ;
+; 0.665 ; gerador_pwm:xgerador_pwm|\pwm:contador[2]         ; gerador_pwm:xgerador_pwm|\pwm:contador[2]         ; clock                         ; clock       ; 1.000        ; 0.000      ; 0.367      ;
+; 0.665 ; gerador_pwm:xgerador_pwm|\pwm:contador[3]         ; gerador_pwm:xgerador_pwm|\pwm:contador[3]         ; clock                         ; clock       ; 1.000        ; 0.000      ; 0.367      ;
+; 0.665 ; gerador_clock:xgerador_clock|blink                ; gerador_clock:xgerador_clock|blink                ; clock                         ; clock       ; 1.000        ; 0.000      ; 0.367      ;
+; 0.665 ; gerador_clock:xgerador_clock|\clock1:contador1[1] ; gerador_clock:xgerador_clock|\clock1:contador1[1] ; clock                         ; clock       ; 1.000        ; 0.000      ; 0.367      ;
+; 1.964 ; gerador_pwm:xgerador_pwm|aux2                     ; gerador_pwm:xgerador_pwm|aux2                     ; gerador_pwm:xgerador_pwm|aux2 ; clock       ; 0.500        ; 1.658      ; 0.367      ;
+; 1.964 ; gerador_pwm:xgerador_pwm|aux1                     ; gerador_pwm:xgerador_pwm|aux1                     ; gerador_pwm:xgerador_pwm|aux1 ; clock       ; 0.500        ; 1.658      ; 0.367      ;
+; 2.464 ; gerador_pwm:xgerador_pwm|aux2                     ; gerador_pwm:xgerador_pwm|aux2                     ; gerador_pwm:xgerador_pwm|aux2 ; clock       ; 1.000        ; 1.658      ; 0.367      ;
+; 2.464 ; gerador_pwm:xgerador_pwm|aux1                     ; gerador_pwm:xgerador_pwm|aux1                     ; gerador_pwm:xgerador_pwm|aux1 ; clock       ; 1.000        ; 1.658      ; 0.367      ;
++-------+---------------------------------------------------+---------------------------------------------------+-------------------------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Setup: 'gerador_pwm:xgerador_pwm|aux2'                                                                                                                                               ;
++-------+-------------------------------------------+------------------------------------+-------------------------------+-------------------------------+--------------+------------+------------+
+; Slack ; From Node                                 ; To Node                            ; Launch Clock                  ; Latch Clock                   ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------------------------+------------------------------------+-------------------------------+-------------------------------+--------------+------------+------------+
+; 0.449 ; maquina_estado:xmaquina_estado|tipo_aux   ; cont_display:xcont_display|tipo2   ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux2 ; 1.000        ; -0.002     ; 0.581      ;
+; 0.465 ; maquina_estado:xmaquina_estado|est_aux[1] ; cont_display:xcont_display|aux2[1] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux2 ; 1.000        ; 0.002      ; 0.569      ;
+; 0.468 ; maquina_estado:xmaquina_estado|est_aux[3] ; cont_display:xcont_display|aux2[3] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux2 ; 1.000        ; 0.002      ; 0.566      ;
+; 0.471 ; maquina_estado:xmaquina_estado|est_aux[2] ; cont_display:xcont_display|aux2[2] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux2 ; 1.000        ; 0.000      ; 0.561      ;
+; 0.474 ; cont_display:xcont_display|aux2[2]        ; cont_display:xcont_display|aux1[2] ; gerador_pwm:xgerador_pwm|aux2 ; gerador_pwm:xgerador_pwm|aux2 ; 1.000        ; 0.002      ; 0.560      ;
+; 0.519 ; cont_display:xcont_display|aux1[2]        ; cont_display:xcont_display|aux0[2] ; gerador_pwm:xgerador_pwm|aux2 ; gerador_pwm:xgerador_pwm|aux2 ; 1.000        ; 0.000      ; 0.513      ;
+; 0.527 ; cont_display:xcont_display|aux1[1]        ; cont_display:xcont_display|aux0[1] ; gerador_pwm:xgerador_pwm|aux2 ; gerador_pwm:xgerador_pwm|aux2 ; 1.000        ; 0.000      ; 0.505      ;
+; 0.530 ; cont_display:xcont_display|aux2[1]        ; cont_display:xcont_display|aux1[1] ; gerador_pwm:xgerador_pwm|aux2 ; gerador_pwm:xgerador_pwm|aux2 ; 1.000        ; 0.000      ; 0.502      ;
+; 0.530 ; cont_display:xcont_display|aux1[3]        ; cont_display:xcont_display|aux0[3] ; gerador_pwm:xgerador_pwm|aux2 ; gerador_pwm:xgerador_pwm|aux2 ; 1.000        ; 0.000      ; 0.502      ;
+; 0.532 ; maquina_estado:xmaquina_estado|est_aux[0] ; cont_display:xcont_display|aux2[0] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux2 ; 1.000        ; 0.000      ; 0.500      ;
+; 0.539 ; cont_display:xcont_display|aux2[3]        ; cont_display:xcont_display|aux1[3] ; gerador_pwm:xgerador_pwm|aux2 ; gerador_pwm:xgerador_pwm|aux2 ; 1.000        ; 0.000      ; 0.493      ;
+; 0.541 ; cont_display:xcont_display|aux2[0]        ; cont_display:xcont_display|aux1[0] ; gerador_pwm:xgerador_pwm|aux2 ; gerador_pwm:xgerador_pwm|aux2 ; 1.000        ; 0.000      ; 0.491      ;
+; 0.541 ; cont_display:xcont_display|aux1[0]        ; cont_display:xcont_display|aux0[0] ; gerador_pwm:xgerador_pwm|aux2 ; gerador_pwm:xgerador_pwm|aux2 ; 1.000        ; 0.000      ; 0.491      ;
+; 0.635 ; cont_display:xcont_display|tipo2          ; cont_display:xcont_display|tipo1   ; gerador_pwm:xgerador_pwm|aux2 ; gerador_pwm:xgerador_pwm|aux2 ; 1.000        ; 0.000      ; 0.397      ;
+; 0.640 ; cont_display:xcont_display|tipo1          ; cont_display:xcont_display|tipo0   ; gerador_pwm:xgerador_pwm|aux2 ; gerador_pwm:xgerador_pwm|aux2 ; 1.000        ; 0.000      ; 0.392      ;
++-------+-------------------------------------------+------------------------------------+-------------------------------+-------------------------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Hold: 'clock'                                                                                                                                                                              ;
++--------+---------------------------------------------------+---------------------------------------------------+-------------------------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                         ; To Node                                           ; Launch Clock                  ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+---------------------------------------------------+---------------------------------------------------+-------------------------------+-------------+--------------+------------+------------+
+; -1.584 ; gerador_pwm:xgerador_pwm|aux2                     ; gerador_pwm:xgerador_pwm|aux2                     ; gerador_pwm:xgerador_pwm|aux2 ; clock       ; 0.000        ; 1.658      ; 0.367      ;
+; -1.584 ; gerador_pwm:xgerador_pwm|aux1                     ; gerador_pwm:xgerador_pwm|aux1                     ; gerador_pwm:xgerador_pwm|aux1 ; clock       ; 0.000        ; 1.658      ; 0.367      ;
+; -1.084 ; gerador_pwm:xgerador_pwm|aux2                     ; gerador_pwm:xgerador_pwm|aux2                     ; gerador_pwm:xgerador_pwm|aux2 ; clock       ; -0.500       ; 1.658      ; 0.367      ;
+; -1.084 ; gerador_pwm:xgerador_pwm|aux1                     ; gerador_pwm:xgerador_pwm|aux1                     ; gerador_pwm:xgerador_pwm|aux1 ; clock       ; -0.500       ; 1.658      ; 0.367      ;
+; 0.215  ; gerador_pwm:xgerador_pwm|\pwm:contador[1]         ; gerador_pwm:xgerador_pwm|\pwm:contador[1]         ; clock                         ; clock       ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215  ; gerador_pwm:xgerador_pwm|\pwm:contador[3]         ; gerador_pwm:xgerador_pwm|\pwm:contador[3]         ; clock                         ; clock       ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215  ; gerador_pwm:xgerador_pwm|\pwm:contador[2]         ; gerador_pwm:xgerador_pwm|\pwm:contador[2]         ; clock                         ; clock       ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215  ; gerador_pwm:xgerador_pwm|\pwm:contador[0]         ; gerador_pwm:xgerador_pwm|\pwm:contador[0]         ; clock                         ; clock       ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215  ; gerador_clock:xgerador_clock|\clock1:contador1[0] ; gerador_clock:xgerador_clock|\clock1:contador1[0] ; clock                         ; clock       ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215  ; gerador_clock:xgerador_clock|\clock1:contador1[1] ; gerador_clock:xgerador_clock|\clock1:contador1[1] ; clock                         ; clock       ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215  ; gerador_clock:xgerador_clock|blink                ; gerador_clock:xgerador_clock|blink                ; clock                         ; clock       ; 0.000        ; 0.000      ; 0.367      ;
+; 0.240  ; gerador_clock:xgerador_clock|\clock1:contador1[0] ; gerador_clock:xgerador_clock|\clock1:contador1[1] ; clock                         ; clock       ; 0.000        ; 0.000      ; 0.392      ;
+; 0.243  ; gerador_clock:xgerador_clock|\clock1:contador1[0] ; gerador_clock:xgerador_clock|blink                ; clock                         ; clock       ; 0.000        ; 0.000      ; 0.395      ;
+; 0.253  ; gerador_pwm:xgerador_pwm|\pwm:contador[3]         ; gerador_pwm:xgerador_pwm|\pwm:contador[2]         ; clock                         ; clock       ; 0.000        ; 0.000      ; 0.405      ;
+; 0.325  ; gerador_pwm:xgerador_pwm|\pwm:contador[2]         ; gerador_pwm:xgerador_pwm|\pwm:contador[0]         ; clock                         ; clock       ; 0.000        ; 0.000      ; 0.477      ;
+; 0.326  ; gerador_pwm:xgerador_pwm|\pwm:contador[2]         ; gerador_pwm:xgerador_pwm|\pwm:contador[1]         ; clock                         ; clock       ; 0.000        ; 0.000      ; 0.478      ;
+; 0.326  ; gerador_pwm:xgerador_pwm|\pwm:contador[2]         ; gerador_pwm:xgerador_pwm|\pwm:contador[3]         ; clock                         ; clock       ; 0.000        ; 0.000      ; 0.478      ;
+; 0.356  ; gerador_clock:xgerador_clock|\clock1:contador1[1] ; gerador_clock:xgerador_clock|blink                ; clock                         ; clock       ; 0.000        ; 0.000      ; 0.508      ;
+; 0.382  ; gerador_pwm:xgerador_pwm|\pwm:contador[0]         ; gerador_pwm:xgerador_pwm|\pwm:contador[1]         ; clock                         ; clock       ; 0.000        ; 0.000      ; 0.534      ;
+; 0.387  ; gerador_pwm:xgerador_pwm|\pwm:contador[0]         ; gerador_pwm:xgerador_pwm|\pwm:contador[3]         ; clock                         ; clock       ; 0.000        ; 0.000      ; 0.539      ;
+; 0.388  ; gerador_pwm:xgerador_pwm|\pwm:contador[1]         ; gerador_pwm:xgerador_pwm|\pwm:contador[3]         ; clock                         ; clock       ; 0.000        ; 0.000      ; 0.540      ;
+; 0.389  ; gerador_pwm:xgerador_pwm|\pwm:contador[0]         ; gerador_pwm:xgerador_pwm|\pwm:contador[2]         ; clock                         ; clock       ; 0.000        ; 0.000      ; 0.541      ;
+; 0.392  ; gerador_pwm:xgerador_pwm|\pwm:contador[1]         ; gerador_pwm:xgerador_pwm|\pwm:contador[2]         ; clock                         ; clock       ; 0.000        ; 0.000      ; 0.544      ;
+; 0.445  ; gerador_pwm:xgerador_pwm|\pwm:contador[0]         ; gerador_pwm:xgerador_pwm|aux1                     ; clock                         ; clock       ; 0.000        ; 0.000      ; 0.597      ;
+; 0.446  ; gerador_pwm:xgerador_pwm|\pwm:contador[0]         ; gerador_pwm:xgerador_pwm|aux2                     ; clock                         ; clock       ; 0.000        ; 0.000      ; 0.598      ;
+; 0.453  ; gerador_pwm:xgerador_pwm|\pwm:contador[3]         ; gerador_pwm:xgerador_pwm|\pwm:contador[1]         ; clock                         ; clock       ; 0.000        ; 0.000      ; 0.605      ;
+; 0.454  ; gerador_pwm:xgerador_pwm|\pwm:contador[3]         ; gerador_pwm:xgerador_pwm|\pwm:contador[0]         ; clock                         ; clock       ; 0.000        ; 0.000      ; 0.606      ;
+; 0.484  ; gerador_pwm:xgerador_pwm|\pwm:contador[2]         ; gerador_pwm:xgerador_pwm|aux1                     ; clock                         ; clock       ; 0.000        ; 0.000      ; 0.636      ;
+; 0.485  ; gerador_pwm:xgerador_pwm|\pwm:contador[2]         ; gerador_pwm:xgerador_pwm|aux2                     ; clock                         ; clock       ; 0.000        ; 0.000      ; 0.637      ;
+; 0.544  ; gerador_pwm:xgerador_pwm|\pwm:contador[3]         ; gerador_pwm:xgerador_pwm|aux1                     ; clock                         ; clock       ; 0.000        ; 0.000      ; 0.696      ;
+; 0.550  ; gerador_pwm:xgerador_pwm|\pwm:contador[3]         ; gerador_pwm:xgerador_pwm|aux2                     ; clock                         ; clock       ; 0.000        ; 0.000      ; 0.702      ;
+; 0.564  ; gerador_pwm:xgerador_pwm|\pwm:contador[1]         ; gerador_pwm:xgerador_pwm|aux1                     ; clock                         ; clock       ; 0.000        ; 0.000      ; 0.716      ;
+; 0.565  ; gerador_pwm:xgerador_pwm|\pwm:contador[1]         ; gerador_pwm:xgerador_pwm|aux2                     ; clock                         ; clock       ; 0.000        ; 0.000      ; 0.717      ;
++--------+---------------------------------------------------+---------------------------------------------------+-------------------------------+-------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Hold: 'gerador_pwm:xgerador_pwm|aux1'                                                                                                                                                       ;
++-------+-------------------------------------------+-------------------------------------------+-------------------------------+-------------------------------+--------------+------------+------------+
+; Slack ; From Node                                 ; To Node                                   ; Launch Clock                  ; Latch Clock                   ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------------------------+-------------------------------------------+-------------------------------+-------------------------------+--------------+------------+------------+
+; 0.215 ; maquina_estado:xmaquina_estado|est_aux[2] ; maquina_estado:xmaquina_estado|est_aux[2] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; maquina_estado:xmaquina_estado|est_aux[3] ; maquina_estado:xmaquina_estado|est_aux[3] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; maquina_estado:xmaquina_estado|est_aux[1] ; maquina_estado:xmaquina_estado|est_aux[1] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; maquina_estado:xmaquina_estado|est_aux[0] ; maquina_estado:xmaquina_estado|est_aux[0] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 0.000        ; 0.000      ; 0.367      ;
+; 0.380 ; maquina_estado:xmaquina_estado|est_aux[1] ; maquina_estado:xmaquina_estado|est_aux[2] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 0.000        ; 0.000      ; 0.532      ;
+; 0.381 ; maquina_estado:xmaquina_estado|est_aux[0] ; maquina_estado:xmaquina_estado|est_aux[3] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 0.000        ; 0.000      ; 0.533      ;
+; 0.390 ; maquina_estado:xmaquina_estado|est_aux[2] ; maquina_estado:xmaquina_estado|est_aux[1] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 0.000        ; 0.000      ; 0.542      ;
+; 0.394 ; maquina_estado:xmaquina_estado|est_aux[3] ; maquina_estado:xmaquina_estado|tipo_aux   ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 0.000        ; 0.000      ; 0.546      ;
+; 0.435 ; maquina_estado:xmaquina_estado|est_aux[3] ; maquina_estado:xmaquina_estado|est_aux[1] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 0.000        ; 0.000      ; 0.587      ;
+; 0.437 ; maquina_estado:xmaquina_estado|est_aux[3] ; maquina_estado:xmaquina_estado|est_aux[2] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 0.000        ; 0.000      ; 0.589      ;
+; 0.441 ; maquina_estado:xmaquina_estado|est_aux[2] ; maquina_estado:xmaquina_estado|tipo_aux   ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 0.000        ; 0.000      ; 0.593      ;
+; 0.444 ; maquina_estado:xmaquina_estado|est_aux[2] ; maquina_estado:xmaquina_estado|est_aux[3] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 0.000        ; 0.000      ; 0.596      ;
+; 0.446 ; maquina_estado:xmaquina_estado|est_aux[0] ; maquina_estado:xmaquina_estado|est_aux[1] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 0.000        ; 0.000      ; 0.598      ;
+; 0.448 ; maquina_estado:xmaquina_estado|est_aux[0] ; maquina_estado:xmaquina_estado|est_aux[2] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 0.000        ; 0.000      ; 0.600      ;
+; 0.473 ; maquina_estado:xmaquina_estado|est_aux[1] ; maquina_estado:xmaquina_estado|tipo_aux   ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 0.000        ; 0.000      ; 0.625      ;
+; 0.505 ; maquina_estado:xmaquina_estado|est_aux[1] ; maquina_estado:xmaquina_estado|est_aux[0] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 0.000        ; 0.000      ; 0.657      ;
+; 0.523 ; maquina_estado:xmaquina_estado|est_aux[0] ; maquina_estado:xmaquina_estado|tipo_aux   ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 0.000        ; 0.000      ; 0.675      ;
+; 0.555 ; maquina_estado:xmaquina_estado|est_aux[3] ; maquina_estado:xmaquina_estado|est_aux[0] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 0.000        ; 0.000      ; 0.707      ;
+; 0.560 ; maquina_estado:xmaquina_estado|est_aux[1] ; maquina_estado:xmaquina_estado|est_aux[3] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 0.000        ; 0.000      ; 0.712      ;
+; 0.625 ; maquina_estado:xmaquina_estado|est_aux[2] ; maquina_estado:xmaquina_estado|est_aux[0] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 0.000        ; 0.000      ; 0.777      ;
++-------+-------------------------------------------+-------------------------------------------+-------------------------------+-------------------------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Hold: 'gerador_pwm:xgerador_pwm|aux2'                                                                                                                                                ;
++-------+-------------------------------------------+------------------------------------+-------------------------------+-------------------------------+--------------+------------+------------+
+; Slack ; From Node                                 ; To Node                            ; Launch Clock                  ; Latch Clock                   ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------------------------+------------------------------------+-------------------------------+-------------------------------+--------------+------------+------------+
+; 0.240 ; cont_display:xcont_display|tipo1          ; cont_display:xcont_display|tipo0   ; gerador_pwm:xgerador_pwm|aux2 ; gerador_pwm:xgerador_pwm|aux2 ; 0.000        ; 0.000      ; 0.392      ;
+; 0.245 ; cont_display:xcont_display|tipo2          ; cont_display:xcont_display|tipo1   ; gerador_pwm:xgerador_pwm|aux2 ; gerador_pwm:xgerador_pwm|aux2 ; 0.000        ; 0.000      ; 0.397      ;
+; 0.339 ; cont_display:xcont_display|aux2[0]        ; cont_display:xcont_display|aux1[0] ; gerador_pwm:xgerador_pwm|aux2 ; gerador_pwm:xgerador_pwm|aux2 ; 0.000        ; 0.000      ; 0.491      ;
+; 0.339 ; cont_display:xcont_display|aux1[0]        ; cont_display:xcont_display|aux0[0] ; gerador_pwm:xgerador_pwm|aux2 ; gerador_pwm:xgerador_pwm|aux2 ; 0.000        ; 0.000      ; 0.491      ;
+; 0.341 ; cont_display:xcont_display|aux2[3]        ; cont_display:xcont_display|aux1[3] ; gerador_pwm:xgerador_pwm|aux2 ; gerador_pwm:xgerador_pwm|aux2 ; 0.000        ; 0.000      ; 0.493      ;
+; 0.348 ; maquina_estado:xmaquina_estado|est_aux[0] ; cont_display:xcont_display|aux2[0] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux2 ; 0.000        ; 0.000      ; 0.500      ;
+; 0.350 ; cont_display:xcont_display|aux2[1]        ; cont_display:xcont_display|aux1[1] ; gerador_pwm:xgerador_pwm|aux2 ; gerador_pwm:xgerador_pwm|aux2 ; 0.000        ; 0.000      ; 0.502      ;
+; 0.350 ; cont_display:xcont_display|aux1[3]        ; cont_display:xcont_display|aux0[3] ; gerador_pwm:xgerador_pwm|aux2 ; gerador_pwm:xgerador_pwm|aux2 ; 0.000        ; 0.000      ; 0.502      ;
+; 0.353 ; cont_display:xcont_display|aux1[1]        ; cont_display:xcont_display|aux0[1] ; gerador_pwm:xgerador_pwm|aux2 ; gerador_pwm:xgerador_pwm|aux2 ; 0.000        ; 0.000      ; 0.505      ;
+; 0.361 ; cont_display:xcont_display|aux1[2]        ; cont_display:xcont_display|aux0[2] ; gerador_pwm:xgerador_pwm|aux2 ; gerador_pwm:xgerador_pwm|aux2 ; 0.000        ; 0.000      ; 0.513      ;
+; 0.406 ; cont_display:xcont_display|aux2[2]        ; cont_display:xcont_display|aux1[2] ; gerador_pwm:xgerador_pwm|aux2 ; gerador_pwm:xgerador_pwm|aux2 ; 0.000        ; 0.002      ; 0.560      ;
+; 0.409 ; maquina_estado:xmaquina_estado|est_aux[2] ; cont_display:xcont_display|aux2[2] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux2 ; 0.000        ; 0.000      ; 0.561      ;
+; 0.412 ; maquina_estado:xmaquina_estado|est_aux[3] ; cont_display:xcont_display|aux2[3] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux2 ; 0.000        ; 0.002      ; 0.566      ;
+; 0.415 ; maquina_estado:xmaquina_estado|est_aux[1] ; cont_display:xcont_display|aux2[1] ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux2 ; 0.000        ; 0.002      ; 0.569      ;
+; 0.431 ; maquina_estado:xmaquina_estado|tipo_aux   ; cont_display:xcont_display|tipo2   ; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux2 ; 0.000        ; -0.002     ; 0.581      ;
++-------+-------------------------------------------+------------------------------------+-------------------------------+-------------------------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Minimum Pulse Width: 'clock'                                                                                            ;
++--------+--------------+----------------+------------------+-------+------------+---------------------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target                                            ;
++--------+--------------+----------------+------------------+-------+------------+---------------------------------------------------+
+; -1.380 ; 1.000        ; 2.380          ; Port Rate        ; clock ; Rise       ; clock                                             ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock ; Fall       ; gerador_clock:xgerador_clock|\clock1:contador1[0] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock ; Fall       ; gerador_clock:xgerador_clock|\clock1:contador1[0] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock ; Fall       ; gerador_clock:xgerador_clock|\clock1:contador1[1] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock ; Fall       ; gerador_clock:xgerador_clock|\clock1:contador1[1] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock ; Fall       ; gerador_clock:xgerador_clock|blink                ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock ; Fall       ; gerador_clock:xgerador_clock|blink                ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock ; Fall       ; gerador_pwm:xgerador_pwm|\pwm:contador[0]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock ; Fall       ; gerador_pwm:xgerador_pwm|\pwm:contador[0]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock ; Fall       ; gerador_pwm:xgerador_pwm|\pwm:contador[1]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock ; Fall       ; gerador_pwm:xgerador_pwm|\pwm:contador[1]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock ; Fall       ; gerador_pwm:xgerador_pwm|\pwm:contador[2]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock ; Fall       ; gerador_pwm:xgerador_pwm|\pwm:contador[2]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock ; Fall       ; gerador_pwm:xgerador_pwm|\pwm:contador[3]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock ; Fall       ; gerador_pwm:xgerador_pwm|\pwm:contador[3]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock ; Fall       ; gerador_pwm:xgerador_pwm|aux1                     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock ; Fall       ; gerador_pwm:xgerador_pwm|aux1                     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock ; Fall       ; gerador_pwm:xgerador_pwm|aux2                     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock ; Fall       ; gerador_pwm:xgerador_pwm|aux2                     ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock ; Rise       ; clock|combout                                     ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock ; Rise       ; clock|combout                                     ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock ; Rise       ; clock~clkctrl|inclk[0]                            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock ; Rise       ; clock~clkctrl|inclk[0]                            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock ; Rise       ; clock~clkctrl|outclk                              ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock ; Rise       ; clock~clkctrl|outclk                              ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock ; Rise       ; xgerador_clock|\clock1:contador1[0]|clk           ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock ; Rise       ; xgerador_clock|\clock1:contador1[0]|clk           ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock ; Rise       ; xgerador_clock|\clock1:contador1[1]|clk           ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock ; Rise       ; xgerador_clock|\clock1:contador1[1]|clk           ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock ; Rise       ; xgerador_clock|blink|clk                          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock ; Rise       ; xgerador_clock|blink|clk                          ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock ; Rise       ; xgerador_pwm|\pwm:contador[0]|clk                 ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock ; Rise       ; xgerador_pwm|\pwm:contador[0]|clk                 ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock ; Rise       ; xgerador_pwm|\pwm:contador[1]|clk                 ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock ; Rise       ; xgerador_pwm|\pwm:contador[1]|clk                 ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock ; Rise       ; xgerador_pwm|\pwm:contador[2]|clk                 ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock ; Rise       ; xgerador_pwm|\pwm:contador[2]|clk                 ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock ; Rise       ; xgerador_pwm|\pwm:contador[3]|clk                 ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock ; Rise       ; xgerador_pwm|\pwm:contador[3]|clk                 ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock ; Rise       ; xgerador_pwm|aux1|clk                             ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock ; Rise       ; xgerador_pwm|aux1|clk                             ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock ; Rise       ; xgerador_pwm|aux2|clk                             ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock ; Rise       ; xgerador_pwm|aux2|clk                             ;
++--------+--------------+----------------+------------------+-------+------------+---------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Minimum Pulse Width: 'gerador_pwm:xgerador_pwm|aux2'                                                                             ;
++--------+--------------+----------------+------------------+-------------------------------+------------+------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock                         ; Clock Edge ; Target                             ;
++--------+--------------+----------------+------------------+-------------------------------+------------+------------------------------------+
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux0[0] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux0[0] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux0[1] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux0[1] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux0[2] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux0[2] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux0[3] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux0[3] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux1[0] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux1[0] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux1[1] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux1[1] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux1[2] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux1[2] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux1[3] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux1[3] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux2[0] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux2[0] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux2[1] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux2[1] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux2[2] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux2[2] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux2[3] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|aux2[3] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|tipo0   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|tipo0   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|tipo1   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|tipo1   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|tipo2   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; cont_display:xcont_display|tipo2   ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux0[0]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux0[0]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux0[1]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux0[1]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux0[2]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux0[2]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux0[3]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux0[3]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux1[0]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux1[0]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux1[1]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux1[1]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux1[2]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux1[2]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux1[3]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux1[3]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux2[0]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux2[0]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux2[1]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux2[1]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux2[2]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux2[2]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux2[3]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|aux2[3]|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|tipo0|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|tipo0|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|tipo1|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|tipo1|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|tipo2|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xcont_display|tipo2|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xgerador_pwm|aux2|regout           ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xgerador_pwm|aux2|regout           ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xgerador_pwm|aux2~clkctrl|inclk[0] ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xgerador_pwm|aux2~clkctrl|inclk[0] ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xgerador_pwm|aux2~clkctrl|outclk   ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux2 ; Rise       ; xgerador_pwm|aux2~clkctrl|outclk   ;
++--------+--------------+----------------+------------------+-------------------------------+------------+------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Minimum Pulse Width: 'gerador_pwm:xgerador_pwm|aux1'                                                                                    ;
++--------+--------------+----------------+------------------+-------------------------------+------------+-------------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock                         ; Clock Edge ; Target                                    ;
++--------+--------------+----------------+------------------+-------------------------------+------------+-------------------------------------------+
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; maquina_estado:xmaquina_estado|est_aux[0] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; maquina_estado:xmaquina_estado|est_aux[0] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; maquina_estado:xmaquina_estado|est_aux[1] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; maquina_estado:xmaquina_estado|est_aux[1] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; maquina_estado:xmaquina_estado|est_aux[2] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; maquina_estado:xmaquina_estado|est_aux[2] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; maquina_estado:xmaquina_estado|est_aux[3] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; maquina_estado:xmaquina_estado|est_aux[3] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; maquina_estado:xmaquina_estado|tipo_aux   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; maquina_estado:xmaquina_estado|tipo_aux   ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; xgerador_pwm|aux1|regout                  ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; xgerador_pwm|aux1|regout                  ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; xgerador_pwm|aux1~clkctrl|inclk[0]        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; xgerador_pwm|aux1~clkctrl|inclk[0]        ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; xgerador_pwm|aux1~clkctrl|outclk          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; xgerador_pwm|aux1~clkctrl|outclk          ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; xmaquina_estado|est_aux[0]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; xmaquina_estado|est_aux[0]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; xmaquina_estado|est_aux[1]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; xmaquina_estado|est_aux[1]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; xmaquina_estado|est_aux[2]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; xmaquina_estado|est_aux[2]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; xmaquina_estado|est_aux[3]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; xmaquina_estado|est_aux[3]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; xmaquina_estado|tipo_aux|clk              ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; gerador_pwm:xgerador_pwm|aux1 ; Rise       ; xmaquina_estado|tipo_aux|clk              ;
++--------+--------------+----------------+------------------+-------------------------------+------------+-------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Setup Times                                                                                            ;
++-----------+-------------------------------+-------+-------+------------+-------------------------------+
+; Data Port ; Clock Port                    ; Rise  ; Fall  ; Clock Edge ; Clock Reference               ;
++-----------+-------------------------------+-------+-------+------------+-------------------------------+
+; controle  ; gerador_pwm:xgerador_pwm|aux1 ; 0.072 ; 0.072 ; Rise       ; gerador_pwm:xgerador_pwm|aux1 ;
++-----------+-------------------------------+-------+-------+------------+-------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Hold Times                                                                                             ;
++-----------+-------------------------------+-------+-------+------------+-------------------------------+
+; Data Port ; Clock Port                    ; Rise  ; Fall  ; Clock Edge ; Clock Reference               ;
++-----------+-------------------------------+-------+-------+------------+-------------------------------+
+; controle  ; gerador_pwm:xgerador_pwm|aux1 ; 0.336 ; 0.336 ; Rise       ; gerador_pwm:xgerador_pwm|aux1 ;
++-----------+-------------------------------+-------+-------+------------+-------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Clock to Output Times                                                                                  ;
++-----------+-------------------------------+-------+-------+------------+-------------------------------+
+; Data Port ; Clock Port                    ; Rise  ; Fall  ; Clock Edge ; Clock Reference               ;
++-----------+-------------------------------+-------+-------+------------+-------------------------------+
+; disp0[*]  ; clock                         ; 4.276 ; 4.276 ; Fall       ; clock                         ;
+;  disp0[0] ; clock                         ; 4.276 ; 4.276 ; Fall       ; clock                         ;
+;  disp0[1] ; clock                         ; 3.909 ; 3.909 ; Fall       ; clock                         ;
+;  disp0[2] ; clock                         ; 3.817 ; 3.817 ; Fall       ; clock                         ;
+;  disp0[3] ; clock                         ; 3.819 ; 3.819 ; Fall       ; clock                         ;
+;  disp0[4] ; clock                         ; 3.820 ; 3.820 ; Fall       ; clock                         ;
+;  disp0[5] ; clock                         ; 3.921 ; 3.921 ; Fall       ; clock                         ;
+;  disp0[6] ; clock                         ; 3.822 ; 3.822 ; Fall       ; clock                         ;
+; disp1[*]  ; clock                         ; 4.262 ; 4.262 ; Fall       ; clock                         ;
+;  disp1[0] ; clock                         ; 4.177 ; 4.177 ; Fall       ; clock                         ;
+;  disp1[1] ; clock                         ; 4.013 ; 4.013 ; Fall       ; clock                         ;
+;  disp1[2] ; clock                         ; 4.137 ; 4.137 ; Fall       ; clock                         ;
+;  disp1[3] ; clock                         ; 4.149 ; 4.149 ; Fall       ; clock                         ;
+;  disp1[4] ; clock                         ; 4.140 ; 4.140 ; Fall       ; clock                         ;
+;  disp1[5] ; clock                         ; 4.262 ; 4.262 ; Fall       ; clock                         ;
+;  disp1[6] ; clock                         ; 4.039 ; 4.039 ; Fall       ; clock                         ;
+; disp2[*]  ; clock                         ; 4.280 ; 4.280 ; Fall       ; clock                         ;
+;  disp2[0] ; clock                         ; 4.280 ; 4.280 ; Fall       ; clock                         ;
+;  disp2[1] ; clock                         ; 4.038 ; 4.038 ; Fall       ; clock                         ;
+;  disp2[2] ; clock                         ; 4.140 ; 4.140 ; Fall       ; clock                         ;
+;  disp2[3] ; clock                         ; 4.042 ; 4.042 ; Fall       ; clock                         ;
+;  disp2[4] ; clock                         ; 4.251 ; 4.251 ; Fall       ; clock                         ;
+;  disp2[5] ; clock                         ; 4.022 ; 4.022 ; Fall       ; clock                         ;
+;  disp2[6] ; clock                         ; 4.239 ; 4.239 ; Fall       ; clock                         ;
+; disp0[*]  ; gerador_pwm:xgerador_pwm|aux2 ; 4.363 ; 4.363 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp0[0] ; gerador_pwm:xgerador_pwm|aux2 ; 4.363 ; 4.363 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp0[1] ; gerador_pwm:xgerador_pwm|aux2 ; 4.285 ; 4.285 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp0[2] ; gerador_pwm:xgerador_pwm|aux2 ; 4.209 ; 4.209 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp0[3] ; gerador_pwm:xgerador_pwm|aux2 ; 4.192 ; 4.192 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp0[4] ; gerador_pwm:xgerador_pwm|aux2 ; 4.202 ; 4.202 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp0[5] ; gerador_pwm:xgerador_pwm|aux2 ; 4.283 ; 4.283 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp0[6] ; gerador_pwm:xgerador_pwm|aux2 ; 4.175 ; 4.175 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+; disp1[*]  ; gerador_pwm:xgerador_pwm|aux2 ; 4.605 ; 4.605 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp1[0] ; gerador_pwm:xgerador_pwm|aux2 ; 4.484 ; 4.484 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp1[1] ; gerador_pwm:xgerador_pwm|aux2 ; 4.390 ; 4.390 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp1[2] ; gerador_pwm:xgerador_pwm|aux2 ; 4.538 ; 4.538 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp1[3] ; gerador_pwm:xgerador_pwm|aux2 ; 4.499 ; 4.499 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp1[4] ; gerador_pwm:xgerador_pwm|aux2 ; 4.183 ; 4.183 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp1[5] ; gerador_pwm:xgerador_pwm|aux2 ; 4.605 ; 4.605 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp1[6] ; gerador_pwm:xgerador_pwm|aux2 ; 4.214 ; 4.214 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+; disp2[*]  ; gerador_pwm:xgerador_pwm|aux2 ; 4.768 ; 4.768 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp2[0] ; gerador_pwm:xgerador_pwm|aux2 ; 4.719 ; 4.719 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp2[1] ; gerador_pwm:xgerador_pwm|aux2 ; 4.489 ; 4.489 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp2[2] ; gerador_pwm:xgerador_pwm|aux2 ; 4.768 ; 4.768 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp2[3] ; gerador_pwm:xgerador_pwm|aux2 ; 4.452 ; 4.452 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp2[4] ; gerador_pwm:xgerador_pwm|aux2 ; 4.568 ; 4.568 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp2[5] ; gerador_pwm:xgerador_pwm|aux2 ; 4.236 ; 4.236 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp2[6] ; gerador_pwm:xgerador_pwm|aux2 ; 4.477 ; 4.477 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
++-----------+-------------------------------+-------+-------+------------+-------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                                          ;
++-----------+-------------------------------+-------+-------+------------+-------------------------------+
+; Data Port ; Clock Port                    ; Rise  ; Fall  ; Clock Edge ; Clock Reference               ;
++-----------+-------------------------------+-------+-------+------------+-------------------------------+
+; disp0[*]  ; clock                         ; 3.817 ; 3.817 ; Fall       ; clock                         ;
+;  disp0[0] ; clock                         ; 4.276 ; 4.276 ; Fall       ; clock                         ;
+;  disp0[1] ; clock                         ; 3.909 ; 3.909 ; Fall       ; clock                         ;
+;  disp0[2] ; clock                         ; 3.817 ; 3.817 ; Fall       ; clock                         ;
+;  disp0[3] ; clock                         ; 3.819 ; 3.819 ; Fall       ; clock                         ;
+;  disp0[4] ; clock                         ; 3.820 ; 3.820 ; Fall       ; clock                         ;
+;  disp0[5] ; clock                         ; 3.921 ; 3.921 ; Fall       ; clock                         ;
+;  disp0[6] ; clock                         ; 3.822 ; 3.822 ; Fall       ; clock                         ;
+; disp1[*]  ; clock                         ; 4.013 ; 4.013 ; Fall       ; clock                         ;
+;  disp1[0] ; clock                         ; 4.177 ; 4.177 ; Fall       ; clock                         ;
+;  disp1[1] ; clock                         ; 4.013 ; 4.013 ; Fall       ; clock                         ;
+;  disp1[2] ; clock                         ; 4.137 ; 4.137 ; Fall       ; clock                         ;
+;  disp1[3] ; clock                         ; 4.149 ; 4.149 ; Fall       ; clock                         ;
+;  disp1[4] ; clock                         ; 4.140 ; 4.140 ; Fall       ; clock                         ;
+;  disp1[5] ; clock                         ; 4.262 ; 4.262 ; Fall       ; clock                         ;
+;  disp1[6] ; clock                         ; 4.039 ; 4.039 ; Fall       ; clock                         ;
+; disp2[*]  ; clock                         ; 4.022 ; 4.022 ; Fall       ; clock                         ;
+;  disp2[0] ; clock                         ; 4.280 ; 4.280 ; Fall       ; clock                         ;
+;  disp2[1] ; clock                         ; 4.038 ; 4.038 ; Fall       ; clock                         ;
+;  disp2[2] ; clock                         ; 4.140 ; 4.140 ; Fall       ; clock                         ;
+;  disp2[3] ; clock                         ; 4.042 ; 4.042 ; Fall       ; clock                         ;
+;  disp2[4] ; clock                         ; 4.251 ; 4.251 ; Fall       ; clock                         ;
+;  disp2[5] ; clock                         ; 4.022 ; 4.022 ; Fall       ; clock                         ;
+;  disp2[6] ; clock                         ; 4.239 ; 4.239 ; Fall       ; clock                         ;
+; disp0[*]  ; gerador_pwm:xgerador_pwm|aux2 ; 3.707 ; 3.707 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp0[0] ; gerador_pwm:xgerador_pwm|aux2 ; 3.707 ; 3.707 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp0[1] ; gerador_pwm:xgerador_pwm|aux2 ; 3.880 ; 3.880 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp0[2] ; gerador_pwm:xgerador_pwm|aux2 ; 3.803 ; 3.803 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp0[3] ; gerador_pwm:xgerador_pwm|aux2 ; 3.798 ; 3.798 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp0[4] ; gerador_pwm:xgerador_pwm|aux2 ; 3.804 ; 3.804 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp0[5] ; gerador_pwm:xgerador_pwm|aux2 ; 3.896 ; 3.896 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp0[6] ; gerador_pwm:xgerador_pwm|aux2 ; 3.803 ; 3.803 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+; disp1[*]  ; gerador_pwm:xgerador_pwm|aux2 ; 3.750 ; 3.750 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp1[0] ; gerador_pwm:xgerador_pwm|aux2 ; 3.787 ; 3.787 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp1[1] ; gerador_pwm:xgerador_pwm|aux2 ; 3.879 ; 3.879 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp1[2] ; gerador_pwm:xgerador_pwm|aux2 ; 3.886 ; 3.886 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp1[3] ; gerador_pwm:xgerador_pwm|aux2 ; 3.896 ; 3.896 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp1[4] ; gerador_pwm:xgerador_pwm|aux2 ; 3.750 ; 3.750 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp1[5] ; gerador_pwm:xgerador_pwm|aux2 ; 4.009 ; 4.009 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp1[6] ; gerador_pwm:xgerador_pwm|aux2 ; 3.906 ; 3.906 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+; disp2[*]  ; gerador_pwm:xgerador_pwm|aux2 ; 3.696 ; 3.696 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp2[0] ; gerador_pwm:xgerador_pwm|aux2 ; 3.954 ; 3.954 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp2[1] ; gerador_pwm:xgerador_pwm|aux2 ; 3.711 ; 3.711 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp2[2] ; gerador_pwm:xgerador_pwm|aux2 ; 3.816 ; 3.816 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp2[3] ; gerador_pwm:xgerador_pwm|aux2 ; 3.716 ; 3.716 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp2[4] ; gerador_pwm:xgerador_pwm|aux2 ; 3.831 ; 3.831 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp2[5] ; gerador_pwm:xgerador_pwm|aux2 ; 3.696 ; 3.696 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp2[6] ; gerador_pwm:xgerador_pwm|aux2 ; 3.992 ; 3.992 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
++-----------+-------------------------------+-------+-------+------------+-------------------------------+
+
+
++---------------------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                                         ;
++--------------------------------+--------+--------+----------+---------+---------------------+
+; Clock                          ; Setup  ; Hold   ; Recovery ; Removal ; Minimum Pulse Width ;
++--------------------------------+--------+--------+----------+---------+---------------------+
+; Worst-case Slack               ; -0.780 ; -2.540 ; N/A      ; N/A     ; -1.380              ;
+;  clock                         ; -0.756 ; -2.540 ; N/A      ; N/A     ; -1.380              ;
+;  gerador_pwm:xgerador_pwm|aux1 ; -0.780 ; 0.215  ; N/A      ; N/A     ; -0.500              ;
+;  gerador_pwm:xgerador_pwm|aux2 ; -0.108 ; 0.240  ; N/A      ; N/A     ; -0.500              ;
+; Design-wide TNS                ; -5.234 ; -5.08  ; 0.0      ; 0.0     ; -30.38              ;
+;  clock                         ; -2.183 ; -5.080 ; N/A      ; N/A     ; -10.380             ;
+;  gerador_pwm:xgerador_pwm|aux1 ; -2.643 ; 0.000  ; N/A      ; N/A     ; -5.000              ;
+;  gerador_pwm:xgerador_pwm|aux2 ; -0.408 ; 0.000  ; N/A      ; N/A     ; -15.000             ;
++--------------------------------+--------+--------+----------+---------+---------------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Setup Times                                                                                            ;
++-----------+-------------------------------+-------+-------+------------+-------------------------------+
+; Data Port ; Clock Port                    ; Rise  ; Fall  ; Clock Edge ; Clock Reference               ;
++-----------+-------------------------------+-------+-------+------------+-------------------------------+
+; controle  ; gerador_pwm:xgerador_pwm|aux1 ; 0.798 ; 0.798 ; Rise       ; gerador_pwm:xgerador_pwm|aux1 ;
++-----------+-------------------------------+-------+-------+------------+-------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Hold Times                                                                                             ;
++-----------+-------------------------------+-------+-------+------------+-------------------------------+
+; Data Port ; Clock Port                    ; Rise  ; Fall  ; Clock Edge ; Clock Reference               ;
++-----------+-------------------------------+-------+-------+------------+-------------------------------+
+; controle  ; gerador_pwm:xgerador_pwm|aux1 ; 0.336 ; 0.336 ; Rise       ; gerador_pwm:xgerador_pwm|aux1 ;
++-----------+-------------------------------+-------+-------+------------+-------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Clock to Output Times                                                                                  ;
++-----------+-------------------------------+-------+-------+------------+-------------------------------+
+; Data Port ; Clock Port                    ; Rise  ; Fall  ; Clock Edge ; Clock Reference               ;
++-----------+-------------------------------+-------+-------+------------+-------------------------------+
+; disp0[*]  ; clock                         ; 7.766 ; 7.766 ; Fall       ; clock                         ;
+;  disp0[0] ; clock                         ; 7.766 ; 7.766 ; Fall       ; clock                         ;
+;  disp0[1] ; clock                         ; 6.994 ; 6.994 ; Fall       ; clock                         ;
+;  disp0[2] ; clock                         ; 6.778 ; 6.778 ; Fall       ; clock                         ;
+;  disp0[3] ; clock                         ; 6.783 ; 6.783 ; Fall       ; clock                         ;
+;  disp0[4] ; clock                         ; 6.782 ; 6.782 ; Fall       ; clock                         ;
+;  disp0[5] ; clock                         ; 7.009 ; 7.009 ; Fall       ; clock                         ;
+;  disp0[6] ; clock                         ; 6.784 ; 6.784 ; Fall       ; clock                         ;
+; disp1[*]  ; clock                         ; 7.722 ; 7.722 ; Fall       ; clock                         ;
+;  disp1[0] ; clock                         ; 7.570 ; 7.570 ; Fall       ; clock                         ;
+;  disp1[1] ; clock                         ; 7.222 ; 7.222 ; Fall       ; clock                         ;
+;  disp1[2] ; clock                         ; 7.474 ; 7.474 ; Fall       ; clock                         ;
+;  disp1[3] ; clock                         ; 7.486 ; 7.486 ; Fall       ; clock                         ;
+;  disp1[4] ; clock                         ; 7.525 ; 7.525 ; Fall       ; clock                         ;
+;  disp1[5] ; clock                         ; 7.722 ; 7.722 ; Fall       ; clock                         ;
+;  disp1[6] ; clock                         ; 7.246 ; 7.246 ; Fall       ; clock                         ;
+; disp2[*]  ; clock                         ; 7.768 ; 7.768 ; Fall       ; clock                         ;
+;  disp2[0] ; clock                         ; 7.743 ; 7.743 ; Fall       ; clock                         ;
+;  disp2[1] ; clock                         ; 7.247 ; 7.247 ; Fall       ; clock                         ;
+;  disp2[2] ; clock                         ; 7.478 ; 7.478 ; Fall       ; clock                         ;
+;  disp2[3] ; clock                         ; 7.252 ; 7.252 ; Fall       ; clock                         ;
+;  disp2[4] ; clock                         ; 7.768 ; 7.768 ; Fall       ; clock                         ;
+;  disp2[5] ; clock                         ; 7.233 ; 7.233 ; Fall       ; clock                         ;
+;  disp2[6] ; clock                         ; 7.703 ; 7.703 ; Fall       ; clock                         ;
+; disp0[*]  ; gerador_pwm:xgerador_pwm|aux2 ; 8.197 ; 8.197 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp0[0] ; gerador_pwm:xgerador_pwm|aux2 ; 8.197 ; 8.197 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp0[1] ; gerador_pwm:xgerador_pwm|aux2 ; 8.053 ; 8.053 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp0[2] ; gerador_pwm:xgerador_pwm|aux2 ; 7.826 ; 7.826 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp0[3] ; gerador_pwm:xgerador_pwm|aux2 ; 7.831 ; 7.831 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp0[4] ; gerador_pwm:xgerador_pwm|aux2 ; 7.852 ; 7.852 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp0[5] ; gerador_pwm:xgerador_pwm|aux2 ; 8.031 ; 8.031 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp0[6] ; gerador_pwm:xgerador_pwm|aux2 ; 7.807 ; 7.807 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+; disp1[*]  ; gerador_pwm:xgerador_pwm|aux2 ; 8.755 ; 8.755 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp1[0] ; gerador_pwm:xgerador_pwm|aux2 ; 8.488 ; 8.488 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp1[1] ; gerador_pwm:xgerador_pwm|aux2 ; 8.334 ; 8.334 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp1[2] ; gerador_pwm:xgerador_pwm|aux2 ; 8.614 ; 8.614 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp1[3] ; gerador_pwm:xgerador_pwm|aux2 ; 8.531 ; 8.531 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp1[4] ; gerador_pwm:xgerador_pwm|aux2 ; 7.860 ; 7.860 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp1[5] ; gerador_pwm:xgerador_pwm|aux2 ; 8.755 ; 8.755 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp1[6] ; gerador_pwm:xgerador_pwm|aux2 ; 7.894 ; 7.894 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+; disp2[*]  ; gerador_pwm:xgerador_pwm|aux2 ; 9.126 ; 9.126 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp2[0] ; gerador_pwm:xgerador_pwm|aux2 ; 8.987 ; 8.987 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp2[1] ; gerador_pwm:xgerador_pwm|aux2 ; 8.511 ; 8.511 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp2[2] ; gerador_pwm:xgerador_pwm|aux2 ; 9.126 ; 9.126 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp2[3] ; gerador_pwm:xgerador_pwm|aux2 ; 8.434 ; 8.434 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp2[4] ; gerador_pwm:xgerador_pwm|aux2 ; 8.740 ; 8.740 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp2[5] ; gerador_pwm:xgerador_pwm|aux2 ; 7.992 ; 7.992 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp2[6] ; gerador_pwm:xgerador_pwm|aux2 ; 8.488 ; 8.488 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
++-----------+-------------------------------+-------+-------+------------+-------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                                          ;
++-----------+-------------------------------+-------+-------+------------+-------------------------------+
+; Data Port ; Clock Port                    ; Rise  ; Fall  ; Clock Edge ; Clock Reference               ;
++-----------+-------------------------------+-------+-------+------------+-------------------------------+
+; disp0[*]  ; clock                         ; 3.817 ; 3.817 ; Fall       ; clock                         ;
+;  disp0[0] ; clock                         ; 4.276 ; 4.276 ; Fall       ; clock                         ;
+;  disp0[1] ; clock                         ; 3.909 ; 3.909 ; Fall       ; clock                         ;
+;  disp0[2] ; clock                         ; 3.817 ; 3.817 ; Fall       ; clock                         ;
+;  disp0[3] ; clock                         ; 3.819 ; 3.819 ; Fall       ; clock                         ;
+;  disp0[4] ; clock                         ; 3.820 ; 3.820 ; Fall       ; clock                         ;
+;  disp0[5] ; clock                         ; 3.921 ; 3.921 ; Fall       ; clock                         ;
+;  disp0[6] ; clock                         ; 3.822 ; 3.822 ; Fall       ; clock                         ;
+; disp1[*]  ; clock                         ; 4.013 ; 4.013 ; Fall       ; clock                         ;
+;  disp1[0] ; clock                         ; 4.177 ; 4.177 ; Fall       ; clock                         ;
+;  disp1[1] ; clock                         ; 4.013 ; 4.013 ; Fall       ; clock                         ;
+;  disp1[2] ; clock                         ; 4.137 ; 4.137 ; Fall       ; clock                         ;
+;  disp1[3] ; clock                         ; 4.149 ; 4.149 ; Fall       ; clock                         ;
+;  disp1[4] ; clock                         ; 4.140 ; 4.140 ; Fall       ; clock                         ;
+;  disp1[5] ; clock                         ; 4.262 ; 4.262 ; Fall       ; clock                         ;
+;  disp1[6] ; clock                         ; 4.039 ; 4.039 ; Fall       ; clock                         ;
+; disp2[*]  ; clock                         ; 4.022 ; 4.022 ; Fall       ; clock                         ;
+;  disp2[0] ; clock                         ; 4.280 ; 4.280 ; Fall       ; clock                         ;
+;  disp2[1] ; clock                         ; 4.038 ; 4.038 ; Fall       ; clock                         ;
+;  disp2[2] ; clock                         ; 4.140 ; 4.140 ; Fall       ; clock                         ;
+;  disp2[3] ; clock                         ; 4.042 ; 4.042 ; Fall       ; clock                         ;
+;  disp2[4] ; clock                         ; 4.251 ; 4.251 ; Fall       ; clock                         ;
+;  disp2[5] ; clock                         ; 4.022 ; 4.022 ; Fall       ; clock                         ;
+;  disp2[6] ; clock                         ; 4.239 ; 4.239 ; Fall       ; clock                         ;
+; disp0[*]  ; gerador_pwm:xgerador_pwm|aux2 ; 3.707 ; 3.707 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp0[0] ; gerador_pwm:xgerador_pwm|aux2 ; 3.707 ; 3.707 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp0[1] ; gerador_pwm:xgerador_pwm|aux2 ; 3.880 ; 3.880 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp0[2] ; gerador_pwm:xgerador_pwm|aux2 ; 3.803 ; 3.803 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp0[3] ; gerador_pwm:xgerador_pwm|aux2 ; 3.798 ; 3.798 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp0[4] ; gerador_pwm:xgerador_pwm|aux2 ; 3.804 ; 3.804 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp0[5] ; gerador_pwm:xgerador_pwm|aux2 ; 3.896 ; 3.896 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp0[6] ; gerador_pwm:xgerador_pwm|aux2 ; 3.803 ; 3.803 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+; disp1[*]  ; gerador_pwm:xgerador_pwm|aux2 ; 3.750 ; 3.750 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp1[0] ; gerador_pwm:xgerador_pwm|aux2 ; 3.787 ; 3.787 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp1[1] ; gerador_pwm:xgerador_pwm|aux2 ; 3.879 ; 3.879 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp1[2] ; gerador_pwm:xgerador_pwm|aux2 ; 3.886 ; 3.886 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp1[3] ; gerador_pwm:xgerador_pwm|aux2 ; 3.896 ; 3.896 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp1[4] ; gerador_pwm:xgerador_pwm|aux2 ; 3.750 ; 3.750 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp1[5] ; gerador_pwm:xgerador_pwm|aux2 ; 4.009 ; 4.009 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp1[6] ; gerador_pwm:xgerador_pwm|aux2 ; 3.906 ; 3.906 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+; disp2[*]  ; gerador_pwm:xgerador_pwm|aux2 ; 3.696 ; 3.696 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp2[0] ; gerador_pwm:xgerador_pwm|aux2 ; 3.954 ; 3.954 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp2[1] ; gerador_pwm:xgerador_pwm|aux2 ; 3.711 ; 3.711 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp2[2] ; gerador_pwm:xgerador_pwm|aux2 ; 3.816 ; 3.816 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp2[3] ; gerador_pwm:xgerador_pwm|aux2 ; 3.716 ; 3.716 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp2[4] ; gerador_pwm:xgerador_pwm|aux2 ; 3.831 ; 3.831 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp2[5] ; gerador_pwm:xgerador_pwm|aux2 ; 3.696 ; 3.696 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
+;  disp2[6] ; gerador_pwm:xgerador_pwm|aux2 ; 3.992 ; 3.992 ; Rise       ; gerador_pwm:xgerador_pwm|aux2 ;
++-----------+-------------------------------+-------+-------+------------+-------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Setup Transfers                                                                                           ;
++-------------------------------+-------------------------------+----------+----------+----------+----------+
+; From Clock                    ; To Clock                      ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++-------------------------------+-------------------------------+----------+----------+----------+----------+
+; clock                         ; clock                         ; 0        ; 0        ; 0        ; 37       ;
+; gerador_pwm:xgerador_pwm|aux1 ; clock                         ; 0        ; 0        ; 1        ; 1        ;
+; gerador_pwm:xgerador_pwm|aux2 ; clock                         ; 0        ; 0        ; 1        ; 1        ;
+; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 28       ; 0        ; 0        ; 0        ;
+; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux2 ; 5        ; 0        ; 0        ; 0        ;
+; gerador_pwm:xgerador_pwm|aux2 ; gerador_pwm:xgerador_pwm|aux2 ; 10       ; 0        ; 0        ; 0        ;
++-------------------------------+-------------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Hold Transfers                                                                                            ;
++-------------------------------+-------------------------------+----------+----------+----------+----------+
+; From Clock                    ; To Clock                      ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++-------------------------------+-------------------------------+----------+----------+----------+----------+
+; clock                         ; clock                         ; 0        ; 0        ; 0        ; 37       ;
+; gerador_pwm:xgerador_pwm|aux1 ; clock                         ; 0        ; 0        ; 1        ; 1        ;
+; gerador_pwm:xgerador_pwm|aux2 ; clock                         ; 0        ; 0        ; 1        ; 1        ;
+; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux1 ; 28       ; 0        ; 0        ; 0        ;
+; gerador_pwm:xgerador_pwm|aux1 ; gerador_pwm:xgerador_pwm|aux2 ; 5        ; 0        ; 0        ; 0        ;
+; gerador_pwm:xgerador_pwm|aux2 ; gerador_pwm:xgerador_pwm|aux2 ; 10       ; 0        ; 0        ; 0        ;
++-------------------------------+-------------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 1     ; 1    ;
+; Unconstrained Input Port Paths  ; 5     ; 5    ;
+; Unconstrained Output Ports      ; 21    ; 21   ;
+; Unconstrained Output Port Paths ; 126   ; 126  ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Wed Sep 19 18:26:55 2018
+Info: Command: quartus_sta P1 -c P1
+Info: qsta_default_script.tcl version: #1
+Warning (136002): Ignored duplicate of assignment PARTITION_PRESERVE_HIGH_SPEED_TILES for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_IGNORE_SOURCE_FILE_CHANGES for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_ALWAYS_USE_QXP_NETLIST for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_IMPORT_NEW_ASSIGNMENTS for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_IMPORT_EXISTING_ASSIGNMENTS for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_IMPORT_EXISTING_LOGICLOCK_REGIONS for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_IMPORT_PIN_ASSIGNMENTS for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_IMPORT_PROMOTE_ASSIGNMENTS for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_TYPE for node ""
+Warning (136002): Ignored duplicate of assignment ALLOW_MULTIPLE_PERSONAS for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_ASD_REGION_ID for node ""
+Warning (136002): Ignored duplicate of assignment CROSS_BOUNDARY_OPTIMIZATIONS for node ""
+Warning (136002): Ignored duplicate of assignment PROPAGATE_CONSTANTS_ON_INPUTS for node ""
+Warning (136002): Ignored duplicate of assignment PROPAGATE_INVERSIONS_ON_INPUTS for node ""
+Warning (136002): Ignored duplicate of assignment REMOVE_LOGIC_ON_UNCONNECTED_OUTPUTS for node ""
+Warning (136002): Ignored duplicate of assignment MERGE_EQUIVALENT_INPUTS for node ""
+Warning (136002): Ignored duplicate of assignment MERGE_EQUIVALENT_BIDIRS for node ""
+Warning (136002): Ignored duplicate of assignment ABSORB_PATHS_FROM_OUTPUTS_TO_INPUTS for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_EXTRACT_HARD_BLOCK_NODES for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_SOURCE for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_BACK_ANNOTATION for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_COLOR for node ""
+Warning (136002): Ignored duplicate of assignment HIERARCHY_BLACKBOX_FILE for node "|"
+Warning (136002): Ignored duplicate of assignment PARTITION_PRESERVE_HIGH_SPEED_TILES for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_IGNORE_SOURCE_FILE_CHANGES for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_ALWAYS_USE_QXP_NETLIST for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_IMPORT_NEW_ASSIGNMENTS for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_IMPORT_EXISTING_ASSIGNMENTS for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_IMPORT_EXISTING_LOGICLOCK_REGIONS for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_IMPORT_PIN_ASSIGNMENTS for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_IMPORT_PROMOTE_ASSIGNMENTS for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_TYPE for node ""
+Warning (136002): Ignored duplicate of assignment ALLOW_MULTIPLE_PERSONAS for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_ASD_REGION_ID for node ""
+Warning (136002): Ignored duplicate of assignment CROSS_BOUNDARY_OPTIMIZATIONS for node ""
+Warning (136002): Ignored duplicate of assignment PROPAGATE_CONSTANTS_ON_INPUTS for node ""
+Warning (136002): Ignored duplicate of assignment PROPAGATE_INVERSIONS_ON_INPUTS for node ""
+Warning (136002): Ignored duplicate of assignment REMOVE_LOGIC_ON_UNCONNECTED_OUTPUTS for node ""
+Warning (136002): Ignored duplicate of assignment MERGE_EQUIVALENT_INPUTS for node ""
+Warning (136002): Ignored duplicate of assignment MERGE_EQUIVALENT_BIDIRS for node ""
+Warning (136002): Ignored duplicate of assignment ABSORB_PATHS_FROM_OUTPUTS_TO_INPUTS for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_EXTRACT_HARD_BLOCK_NODES for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_SOURCE for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_BACK_ANNOTATION for node ""
+Warning (136002): Ignored duplicate of assignment PARTITION_COLOR for node ""
+Warning (136002): Ignored duplicate of assignment HIERARCHY_BLACKBOX_FILE for node "|"
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'P1.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name gerador_pwm:xgerador_pwm|aux2 gerador_pwm:xgerador_pwm|aux2
+    Info (332105): create_clock -period 1.000 -name gerador_pwm:xgerador_pwm|aux1 gerador_pwm:xgerador_pwm|aux1
+    Info (332105): create_clock -period 1.000 -name clock clock
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow Model
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -0.780
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -0.780        -2.643 gerador_pwm:xgerador_pwm|aux1 
+    Info (332119):    -0.756        -2.183 clock 
+    Info (332119):    -0.108        -0.408 gerador_pwm:xgerador_pwm|aux2 
+Info (332146): Worst-case hold slack is -2.540
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -2.540        -5.080 clock 
+    Info (332119):     0.391         0.000 gerador_pwm:xgerador_pwm|aux1 
+    Info (332119):     0.523         0.000 gerador_pwm:xgerador_pwm|aux2 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -1.380
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.380       -10.380 clock 
+    Info (332119):    -0.500       -15.000 gerador_pwm:xgerador_pwm|aux2 
+    Info (332119):    -0.500        -5.000 gerador_pwm:xgerador_pwm|aux1 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info: Analyzing Fast Model
+Info (332146): Worst-case setup slack is 0.192
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.192         0.000 gerador_pwm:xgerador_pwm|aux1 
+    Info (332119):     0.198         0.000 clock 
+    Info (332119):     0.449         0.000 gerador_pwm:xgerador_pwm|aux2 
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case hold slack is -1.584
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.584        -3.168 clock 
+    Info (332119):     0.215         0.000 gerador_pwm:xgerador_pwm|aux1 
+    Info (332119):     0.240         0.000 gerador_pwm:xgerador_pwm|aux2 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -1.380
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.380       -10.380 clock 
+    Info (332119):    -0.500       -15.000 gerador_pwm:xgerador_pwm|aux2 
+    Info (332119):    -0.500        -5.000 gerador_pwm:xgerador_pwm|aux1 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 50 warnings
+    Info: Peak virtual memory: 4568 megabytes
+    Info: Processing ended: Wed Sep 19 18:26:56 2018
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+

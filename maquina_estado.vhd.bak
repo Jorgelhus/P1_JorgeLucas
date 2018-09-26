@@ -1,0 +1,26 @@
+-- controle = 0
+-- sequencia ciclica : ... 0 3 5 6 9 12 15 0 ...
+--
+-- controle = 1
+-- sequencia ciclica : ... 0 1 2 4 7 8 10 11 13 14 0 ...
+--
+-- estado = numero primo -> saida = 0
+-- estado = nao primo -> saida = 1
+--
+-- funciona na borda de descida de pwm1
+
+entity maquina_estado is
+port (
+	signal pwm1 : in bit;
+	signal controle : in bit;
+	signal estado : out bit_vector (3 downto 0);
+	signal saida : out bit
+);
+end entity maquina_estado;
+
+architecture c_maquina_estado of maquina_estado is
+
+begin
+
+
+end architecture c_maquina_estado;

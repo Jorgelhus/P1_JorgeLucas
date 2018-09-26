@@ -1,0 +1,16 @@
+entity p1 is
+port (
+signal clock : in bit;
+signal controle : in bit;
+signal disp3, disp2, disp1, disp0 : out bit_vector (6 downto 0)
+);
+end entity p1;
+
+architecture c_p1 of p1 is
+
+begin
+
+
+
+
+end architecture c_p1;
